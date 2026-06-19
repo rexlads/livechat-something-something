@@ -1,0 +1,2572 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layarbola21 – Live Streaming Bola Hari Ini, Jadwal & Skor Terupdate</title>
+    <meta name="description" content="layarbola21 menyajikan live streaming bola hari ini, jadwal pertandingan terbaru, skor live, statistik lengkap, dan update sepak bola dari berbagai liga dunia.">
+    <meta name="keywords" content="live streaming bola, nonton bola online, jadwal bola hari ini, skor live, streaming bola hd">
+    <meta name="author" content="https://layarbola21.org/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/iklan/icon.png">
+    <link rel="apple-touch-icon" href="/iklan/icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="layarbola21 – Live Streaming Bola Hari Ini, Jadwal & Skor Terupdate">
+    <meta property="og:description" content="layarbola21 menyajikan live streaming bola hari ini, jadwal pertandingan terbaru, skor live, statistik lengkap, dan update sepak bola dari berbagai liga dunia.">
+    <meta property="og:image" content="https://layarbola21.org/">
+    <meta property="og:url" content="https://layarbola21.org/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Live Streaming Bola Hari Ini">
+    <meta name="twitter:description" content="Jadwal bola hari ini dan live streaming HD gratis.">
+    <meta name="twitter:image" content="https://layarbola21.org/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            line-height: 1.4;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 15px;
+                max-width: 1200px;
+            }
+        }
+
+        /* Header Baru */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .logo-container {
+            flex-shrink: 0;
+        }
+
+        .logo {
+            width: clamp(40px, 10vw, 60px);
+            height: clamp(40px, 10vw, 60px);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            padding: 5px;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        /* Logo Responsive */
+        .site-logo {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 767px) {
+            .site-logo {
+                max-width: 180px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .site-logo {
+                max-width: 220px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .site-logo {
+                max-width: 300px;
+            }
+        }
+
+        /* Navigation Styles */
+        .nav-menu {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 768px) {
+            .nav-item {
+                padding: 8px 15px;
+                font-size: 1rem;
+            }
+        }
+
+        .nav-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-item.active {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .social-icons {
+                gap: 12px;
+                border-left: 1px solid rgba(255,255,255,0.3);
+                padding-left: 15px;
+            }
+        }
+
+        .social-icon {
+            color: white;
+            font-size: clamp(16px, 4vw, 20px);
+            transition: all 0.3s;
+            width: clamp(35px, 8vw, 40px);
+            height: clamp(35px, 8vw, 40px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            flex-shrink: 0;
+        }
+
+        .social-icon:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-container {
+            display: none;
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+        }
+
+        .mobile-menu-item {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .mobile-menu-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-item.active {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* ============== BANNER STYLES (DARI X.HTML) ============== */
+        /* Banner Styles - RESPONSIVE */
+        .banner-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .banner-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .banner {
+            width: 100%;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            margin: 0 auto;
+        }
+
+        .banner:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .banner-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+            object-fit: contain;
+        }
+
+        .banner:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Height for banners based on device */
+        .banner-1 img {
+            max-height: 60px;
+        }
+
+        .banner-2 img {
+            max-height: 80px;
+        }
+
+        @media (min-width: 768px) {
+            .banner-container {
+                gap: 15px;
+            }
+            
+            .banner-1 img {
+                max-height: 70px;
+            }
+
+            .banner-2 img {
+                max-height: 100px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .banner-1 img {
+                max-height: 90px;
+            }
+
+            .banner-2 img {
+                max-height: 150px;
+            }
+        }
+        /* ============== END BANNER STYLES ============== */
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        @media (min-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr 350px;
+                gap: 20px;
+            }
+        }
+
+        /* Video Section */
+        .video-section {
+            background: #16213e;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Fullscreen Button */
+        .fullscreen-btn {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+
+        .fullscreen-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        .fullscreen-btn i {
+            font-size: 20px;
+        }
+
+        /* Marquee Text - DIPERBAIKI UNTUK LAMBAT DAN SMOOTH */
+        .marquee-container {
+            width: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            padding: 12px 0;
+            margin-top: 5px;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+            position: relative;
+            z-index: 5;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 100%;
+            animation: marquee 60s linear infinite;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 16px;
+            padding: 0 20px;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Pause marquee on hover */
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* Untuk efek gradien di ujung marquee */
+        .marquee-container::before,
+        .marquee-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .marquee-container::before {
+            left: 0;
+            background: linear-gradient(90deg, #667eea 0%, transparent 100%);
+        }
+
+        .marquee-container::after {
+            right: 0;
+            background: linear-gradient(90deg, transparent 0%, #667eea 100%);
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .video-info {
+                padding: 20px;
+            }
+        }
+
+        /* Match Info Styles */
+        .match-title {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            word-break: break-word;
+        }
+
+        .live-badge {
+            display: inline-block;
+            background: #ff4757;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+            margin-bottom: 10px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .match-meta {
+            background: rgba(15, 52, 96, 0.7);
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .match-meta {
+                padding: 12px 20px;
+                margin: 15px 0;
+            }
+        }
+
+        .match-date-time {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: #48dbfb;
+        }
+
+        @media (min-width: 768px) {
+            .match-date-time {
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .match-venue {
+            font-size: 0.85rem;
+            color: #ffa502;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .match-score {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0f3460;
+            padding: 15px 10px;
+            border-radius: 10px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .match-score {
+                padding: 20px;
+            }
+        }
+
+        .team {
+            text-align: center;
+            flex: 1;
+            min-width: 0;
+            padding: 0 5px;
+        }
+
+        .team-logo {
+            width: clamp(40px, 12vw, 60px);
+            height: clamp(40px, 12vw, 60px);
+            margin-bottom: 8px;
+            object-fit: contain;
+        }
+
+        .team-name {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            font-weight: bold;
+            word-break: break-word;
+        }
+
+        .score {
+            font-size: clamp(2rem, 8vw, 3rem);
+            font-weight: bold;
+            color: #667eea;
+            padding: 0 10px;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .match-minutes {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 71, 87, 0.9);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: #16213e;
+            border-radius: 10px;
+            padding: 15px;
+            max-height: none;
+            overflow-y: visible;
+        }
+
+        @media (min-width: 768px) {
+            .sidebar {
+                padding: 20px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .sidebar {
+                max-height: 800px;
+                overflow-y: auto;
+            }
+        }
+
+        .sidebar h2 {
+            margin-bottom: 15px;
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+
+        /* Statistics */
+        .match-statistics {
+            background: #0f3460;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .match-statistics {
+                padding: 15px;
+            }
+        }
+
+        .stat-item {
+            margin-bottom: 12px;
+        }
+
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .stat-label {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #ffa502;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .stat-bar-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-value {
+            min-width: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .stat-value {
+                min-width: 35px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .stat-bar {
+            flex: 1;
+            height: 6px;
+            background: #1a1a2e;
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+            min-width: 0;
+        }
+
+        @media (min-width: 768px) {
+            .stat-bar {
+                height: 8px;
+            }
+        }
+
+        .stat-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        /* Match Info */
+        .match-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 52, 96, 0.5);
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .match-league {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .league-logo {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .match-status {
+            background: #ff4757;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* ============== ODDS SECTION - DIPERBAIKI ============== */
+        .odds-section {
+            margin-top: 15px;
+            background: #0f3460;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .odds-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #ffa502;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .odds-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .odd-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .odd-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .odd-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .odd-header span:first-child {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .odd-header span:last-child {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+        }
+
+        .odd-values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .odd-value {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 8px;
+            border-radius: 6px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .odd-value:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        .odd-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .odd-number {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .odd-number.high {
+            color: #4cd964;
+        }
+
+        .odd-number.medium {
+            color: #ffcc00;
+        }
+
+        .odd-number.low {
+            color: #ff6b6b;
+        }
+
+        .update-time {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: right;
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 480px) {
+            .odd-values {
+                gap: 8px;
+            }
+            
+            .odd-value {
+                padding: 10px 6px;
+            }
+            
+            .odd-number {
+                font-size: 1.2rem;
+            }
+            
+            .odd-label {
+                font-size: 0.75rem;
+            }
+        }
+        /* ============== END ODDS SECTION ============== */
+
+        /* Loading States */
+        .api-loading {
+            text-align: center;
+            padding: 20px;
+            color: #48dbfb;
+            font-style: italic;
+        }
+
+        .api-error {
+            background: rgba(255, 71, 87, 0.1);
+            border: 1px solid #ff4757;
+            color: #ff4757;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #667eea;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design Improvements */
+        @media (max-width: 767px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+                gap: 10px;
+            }
+            
+            .header-left {
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .header-right {
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .social-icons {
+                display: none;
+            }
+            
+            .mobile-menu-container {
+                display: block;
+            }
+            
+            .container {
+                padding: 8px;
+            }
+            
+            .match-score {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 10px;
+            }
+            
+            .team {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .team-logo {
+                margin-bottom: 0;
+            }
+            
+            .score {
+                order: -1;
+                font-size: 2.5rem;
+                padding: 10px 0;
+            }
+            
+            .match-minutes {
+                position: static;
+                transform: none;
+                margin-top: 10px;
+            }
+            
+            .banner img {
+                border-radius: 6px;
+            }
+            
+            /* Adjust fullscreen button for mobile */
+            .fullscreen-btn {
+                width: 35px;
+                height: 35px;
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .fullscreen-btn i {
+                font-size: 16px;
+            }
+            
+            /* Marquee for mobile */
+            .marquee-text {
+                font-size: 14px;
+            }
+            
+            .marquee-content {
+                animation: marquee 60s linear infinite;
+            }
+            
+            .marquee-container::before,
+            .marquee-container::after {
+                width: 50px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .main-content {
+                gap: 20px;
+            }
+            
+            .video-section {
+                width: 100%;
+            }
+            
+            .marquee-text {
+                font-size: 16px;
+            }
+            
+            .marquee-content {
+                animation: marquee 110s linear infinite;
+            }
+        }
+
+        /* Fullscreen mode styles */
+        :fullscreen .fullscreen-btn {
+            display: none;
+        }
+
+        :-webkit-full-screen .fullscreen-btn {
+            display: none;
+        }
+
+        :-moz-full-screen .fullscreen-btn {
+            display: none;
+        }
+
+        :-ms-fullscreen .fullscreen-btn {
+            display: none;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-1 { margin-top: 0.25rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-3 { margin-top: 1rem; }
+        .mb-1 { margin-bottom: 0.25rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-3 { margin-bottom: 1rem; }
+
+        .px-1 { padding-left: 0.25rem; padding-right: 0.25rem; }
+        .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+        .px-3 { padding-left: 1rem; padding-right: 1rem; }
+        
+        .site-logo {
+            width: 300px;
+            height: auto;
+            display: block;
+        }
+        
+        /* Landscape orientation for mobile */
+        @media screen and (orientation: landscape) and (max-width: 900px) {
+            .video-container {
+                padding-bottom: 0;
+                height: 70vh;
+            }
+            
+            .main-content {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+        }
+        /* ================= MOBILE MATCH SCORE FIX (FINAL) ================= */
+@media (max-width: 767px) {
+
+    .match-score {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 10px;
+    }
+
+    .team {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .team-logo {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .team-name {
+        font-size: 0.85rem;
+        line-height: 1.2;
+        max-width: 120px;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    /* Team kiri */
+    .team:first-child .team-name {
+        text-align: left;
+    }
+
+    /* Team kanan */
+    .team:last-child .team-name {
+        text-align: right;
+    }
+
+    .score {
+        order: -1;
+        font-size: 2.4rem;
+        font-weight: 800;
+        color: #ffffff;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        padding: 6px 20px;
+        border-radius: 12px;
+        margin: 6px 0;
+        min-width: auto;
+    }
+
+    .match-minutes {
+        position: static;
+        transform: none;
+        margin-top: 4px;
+        font-size: 0.75rem;
+    }
+}
+/* ================= DOWNLOAD APK BUTTON STYLES ================= */
+        .download-apk-container {
+            padding: 15px;
+            text-align: center;
+            background: #16213e; /* Menyamakan dengan background video section */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-download-apk {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 500px; /* Membatasi lebar maksimal agar tetap rapi di desktop */
+            padding: 16px 30px;
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse-btn 2s infinite;
+        }
+
+        .btn-download-apk:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 114, 255, 0.6);
+            background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+        }
+
+        .btn-download-apk i {
+            font-size: 1.5rem;
+        }
+
+        /* Efek berdenyut lembut agar menarik perhatian mata pengunjung */
+        @keyframes pulse-btn {
+            0% {
+                box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(0, 114, 255, 0.8);
+                transform: scale(1.02);
+            }
+            100% {
+                box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .download-apk-container {
+                padding: 12px 10px;
+            }
+            .btn-download-apk {
+                font-size: 1rem;
+                padding: 12px 20px;
+                gap: 10px;
+            }
+            .btn-download-apk i {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ================= LIVE CHAT STYLES ================= */
+        .livechat-section {
+            margin-top: 15px;
+            background: #0f3460;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .livechat-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .livechat-title {
+            font-size: 1.05rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .livechat-title .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #4cd964;
+            box-shadow: 0 0 0 0 rgba(76, 217, 100, 0.7);
+            animation: chat-pulse 2s infinite;
+        }
+
+        @keyframes chat-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(76, 217, 100, 0.6); }
+            70% { box-shadow: 0 0 0 8px rgba(76, 217, 100, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 217, 100, 0); }
+        }
+
+        .livechat-room {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.85);
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 8px;
+            border-radius: 12px;
+            max-width: 55%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .livechat-messages {
+            height: 320px;
+            overflow-y: auto;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #16213e;
+        }
+
+        @media (min-width: 1024px) {
+            .livechat-messages { height: 300px; }
+        }
+
+        .chat-msg {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            max-width: 90%;
+            animation: msg-in 0.25s ease;
+        }
+
+        @keyframes msg-in {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-msg.is-me {
+            align-self: flex-end;
+            align-items: flex-end;
+        }
+
+        .chat-msg-meta {
+            font-size: 0.68rem;
+            color: #48dbfb;
+            font-weight: bold;
+            padding: 0 4px;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .chat-msg.is-me .chat-msg-meta { color: #b9a7ff; }
+
+        .chat-msg-time {
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: normal;
+            font-size: 0.62rem;
+        }
+
+        .chat-msg-bubble {
+            background: #0f3460;
+            padding: 8px 12px;
+            border-radius: 12px;
+            border-top-left-radius: 3px;
+            font-size: 0.88rem;
+            line-height: 1.35;
+            word-break: break-word;
+            color: #fff;
+        }
+
+        .chat-msg.is-me .chat-msg-bubble {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-top-left-radius: 12px;
+            border-top-right-radius: 3px;
+        }
+
+        .chat-system {
+            text-align: center;
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+            padding: 6px;
+        }
+
+        .livechat-name-row {
+            display: flex;
+            gap: 8px;
+            padding: 10px 12px 0;
+            background: #16213e;
+        }
+
+        .livechat-name-row input {
+            flex: 1;
+            min-width: 0;
+            background: #0f3460;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: #fff;
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        .livechat-input-row {
+            display: flex;
+            gap: 8px;
+            padding: 10px 12px 12px;
+            background: #16213e;
+        }
+
+        .livechat-input-row input {
+            flex: 1;
+            min-width: 0;
+            background: #0f3460;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .livechat-input-row input:focus,
+        .livechat-name-row input:focus {
+            border-color: #667eea;
+        }
+
+        .livechat-send {
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: #fff;
+            width: 44px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .livechat-send:hover { transform: translateY(-2px); }
+        .livechat-send:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        .livechat-notice {
+            margin: 12px;
+            padding: 10px 12px;
+            background: rgba(255, 165, 2, 0.12);
+            border: 1px solid #ffa502;
+            color: #ffa502;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <img src="https://layarbola21.org/iklan/logo.png" alt="Logo layarbola21" class="site-logo">
+            </div>
+
+            <div class="header-right">
+                <nav class="nav-menu">
+                    <a href="https://layarbola21.org/" class="nav-item active">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="https://layarberita21.com/" class="nav-item">
+                        <i class="fas fa-newspaper"></i> News
+                    </a>
+                </nav>
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/layarbola21" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/intent/tweet?url=layarbola21.org&text=nobar_bola_hanya_di_layarbola21" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/layarbola21_id/" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu-container">
+            <div class="mobile-menu">
+                <a href="#" class="mobile-menu-item active">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#" class="mobile-menu-item">
+                    <i class="fas fa-newspaper"></i> News
+                </a>
+            </div>
+        </div>
+
+        <!-- ============== BANNER SECTION (DARI X.HTML) ============== -->
+        <!-- Banner Section -->
+        <div class="banner-container">
+            <!-- Banner 1 -->
+            <div class="banner-wrapper">
+                <div class="banner banner-2" onclick="window.open('https://pagelink.id/lb21-bosjudi', '_blank')">
+                    <img src="https://layarbola21.org/iklan/bosjudi.gif" alt="Banner Promo 2" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Banner 2 -->
+            <div class="banner-wrapper">
+                <div class="banner banner-2" onclick="window.open('https://pagelink.id/lb21-sv88/', '_blank')">
+                    <img src="https://layarbola21.org/iklan/ab.gif" alt="Banner Promo 2" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+            <!-- Banner 3 -->
+            <div class="banner-wrapper">
+                <div class="banner banner-2" onclick="window.open('https://pagelink.id/lb21-arya88/', '_blank')">
+                    <img src="https://layarbola21.org/iklan/arya.gif" alt="Banner Promo 2" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+            <!-- Banner 4 -->
+            <div class="banner-wrapper">
+                <div class="banner banner-2" onclick="window.open('https://pagelink.id/lb21-anakslot/', '_blank')">
+                    <img src="https://layarbola21.org/iklan/anakslot.gif" alt="Banner Promo 2" loading="lazy">
+                </div>
+            </div>
+        </div>
+        <!-- ============== END BANNER SECTION ============== -->
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Video Player Section -->
+            <div class="video-section">
+                <div class="video-container" id="videoContainer">
+                    <!-- IFRAME STREAMING LANGSUNG DITEMPATKAN DI SINI -->
+                    <iframe id="video-source" allowfullscreen="true" width="100%" height="100%" src="//streaming.1266366.com/Play?token=H4sIAAAAAAAEACWOS07FMAxF99IhIpGdr9MRM%2FSExOhtwGkCBRRapX0SCLF33DKyfI6vfH%2BG21b7M7c6jMPrHO3HFwC09zbcn%2BayCkcM2ninU9SYUMy8bLtw7t86BCIKUU%2FLEWm8T%2FNjX27rpchBJQMMRIpTQeUqomIoRSV0lsn4CJAlte29cjsTANEHQbnzZ%2Fl%2FIdvD%2Bnb2SEZjII0gk44id1fBBkxQgAriFXH0fjTpUE%2BikksvLk8hJl%2B88yVa52ydckDLOVIefv8AMDqcXgEBAAA%3D"></iframe>
+                    
+                    <!-- Fullscreen Button -->
+                    <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+                
+                <!-- Marquee Text - DIPERBAIKI -->
+                <div class="marquee-container">
+                    <div class="marquee-content">
+                        <span class="marquee-text">
+                            🚀 LIVE STREAMING BOLA HD GRATIS | 📺 NONTON BOLA ONLINE TANPA BUFFER | ⚽ SKOR LIVE TERUPDATE | 
+                            🎯 PREDIKSI BOLA AKURAT | 🔔 NOTIFIKASI PERTANDINGAN | 💰 TIPS BERMAIN BOLA TANGKAS | 
+                            🏆 LIGA CHAMPIONS, PREMIER LEAGUE, LA LIGA, SERIE A, BUNDESLIGA | 🌍 SEMUA LIGA DUNIA TERSEDIA | 
+                            📱 SUPPORT MOBILE & DESKTOP | ⭐ layarbola21 - TEMPATNYA NONTON BOLA GRATIS! | 
+                            💎 KUALITAS HD 1080p | ⚡ STREAMING LANCAR TANPA LAG | 🔒 AMAN DAN TERPERCAYA | 
+                            🎁 BONUS NEW MEMBER 100% | 📊 STATISTIK LENGKAP | 📈 ODDS TERUPDATE | 
+                            ⏰ JADWAL BOLA HARI INI | 🌙 LIVE STREAMING MALAM INI | ☀️ LIVE STREAMING SIANG INI |
+                            🇮🇩 LIGA 1 INDONESIA | 🇪🇺 LIGA CHAMPIONS EUROPA | 🏴󠁧󠁢󠁥󠁮󠁧󠁿 PREMIER LEAGUE INGGRIS |
+                            🇪🇸 LA LIGA SPANYOL | 🇮🇹 SERIE A ITALIA | 🇩🇪 BUNDESLIGA JERMAN | 🇫🇷 LIGUE 1 PRANCIS |
+                            🏆 PIALA DUNIA | 🏆 PIALA EROPA | 🏆 COPA AMERICA | 🏆 ASIAN CUP |
+                            🔴 LIVERPOOL vs MANCHESTER UNITED | 🔵 MANCHESTER CITY vs CHELSEA | ⚫ AC MILAN vs INTER MILAN |
+                            ⚪ REAL MADRID vs BARCELONA | 🔴 BAYERN MUNICH vs BORUSSIA DORTMUND | 🇦🇷 MESSI | 🇵🇹 RONALDO |
+                            🇫🇷 MBAPPE | 🇧🇷 NEYMAR | 🇳🇴 HAALAND | 🏴󠁧󠁢󠁥󠁮󠁧󠁿 KANE | ⭐ NONTON GRATIS | ⭐ TANPA BAYAR |
+                            ⭐ TANPA IKLAN MENGANGGU | ⭐ KUALITAS TERBAIK | ⭐ STREAMING STABIL | ⭐ layarbola21 TERPERCAYA!
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Tombol Download APK Besar -->
+                <div class="download-apk-container">
+                    <a href="https://play.google.com/store/apps/details?id=com.nobarbolakece" target="_blank" rel="noopener" class="btn-download-apk">
+                        <i class="fab fa-android"></i>
+                        <span>Download Aplikasi Android (APK)</span>
+                    </a>
+                </div>
+
+                <div class="video-info">
+                    <div class="match-info" id="matchInfo">
+                        <div class="match-league">
+                            <img class="league-logo" id="leagueLogo" src="" alt="League">
+                            <span id="leagueName">Memuat liga...</span>
+                        </div>
+                        <div class="match-status" id="matchStatus">MEMUAT</div>
+                    </div>
+                    
+                    <div id="liveBadgeContainer" style="display: none;"></div>
+                    
+                    <h2 class="match-title" id="matchTitle">Memuat data pertandingan...</h2>
+
+                    <!-- Match Date and Time -->
+                    <div class="match-meta" id="matchMeta">
+                        <div class="match-date-time">
+                            <div id="matchDate">
+                                <i class="far fa-calendar-alt"></i> Memuat...
+                            </div>
+                            <div id="matchTime">
+                                <i class="far fa-clock"></i> Memuat...
+                            </div>
+                        </div>
+                        <div class="match-venue" id="matchVenue">
+                            <i class="fas fa-map-marker-alt"></i> Memuat lokasi...
+                        </div>
+                    </div>
+
+                    <div class="match-score" id="matchScore">
+                        <div class="team">
+                            <img class="team-logo" id="homeLogo" src="https://via.placeholder.com/60" alt="Home">
+                            <div class="team-name" id="homeName">Memuat...</div>
+                        </div>
+                        <div class="score" id="scoreDisplay">0 : 0</div>
+                        <div class="team">
+                            <img class="team-logo" id="awayLogo" src="https://via.placeholder.com/60" alt="Away">
+                            <div class="team-name" id="awayName">Memuat...</div>
+                        </div>
+                        <div class="match-minutes" id="matchMinutes">'</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Section -->
+            <div class="sidebar">
+                <h2>📊 Statistik Pertandingan</h2>
+                <div class="match-statistics" id="matchStatistics">
+                    <div class="api-loading">
+                        <div class="loading-spinner"></div>
+                        <p>Memuat statistik pertandingan...</p>
+                    </div>
+                </div>
+
+                <!-- ============== ODDS SECTION - DIPERBAIKI ============== -->
+                <div class="odds-section">
+                    <h3 class="odds-title">📈 Odds Terbaru</h3>
+                    
+                    <div id="oddsContainer">
+                        <div class="api-loading">
+                            <div class="loading-spinner"></div>
+                            <p>Memuat data odds...</p>
+                        </div>
+                    </div>
+
+                    <div class="update-time" id="updateTime">
+                        Memuat data terbaru...
+                    </div>
+                </div>
+                <!-- ============== END ODDS SECTION ============== -->
+
+                <!-- ============== LIVE CHAT SECTION ============== -->
+                <div class="livechat-section" id="livechatSection">
+                    <div class="livechat-header">
+                        <div class="livechat-title">
+                            <span class="dot"></span> Live Chat
+                        </div>
+                        <div class="livechat-room" id="livechatRoom" title="Room chat untuk pertandingan ini">Memuat room...</div>
+                    </div>
+
+                    <div class="livechat-messages" id="chatMessages">
+                        <div class="chat-system" id="chatStatus">Menghubungkan ke room chat...</div>
+                    </div>
+
+                    <div class="livechat-name-row">
+                        <input type="text" id="chatName" maxlength="20" placeholder="Nama kamu (mis. Andi)" autocomplete="off">
+                    </div>
+
+                    <form class="livechat-input-row" id="chatForm" autocomplete="off">
+                        <input type="text" id="chatInput" maxlength="300" placeholder="Tulis pesan..." autocomplete="off">
+                        <button type="submit" class="livechat-send" id="chatSend" title="Kirim">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+                <!-- ============== END LIVE CHAT SECTION ============== -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== FULLSCREEN FUNCTIONALITY ====================
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const videoContainer = document.getElementById('videoContainer');
+        
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+        
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                if (videoContainer.requestFullscreen) {
+                    videoContainer.requestFullscreen();
+                } else if (videoContainer.webkitRequestFullscreen) {
+                    videoContainer.webkitRequestFullscreen();
+                } else if (videoContainer.msRequestFullscreen) {
+                    videoContainer.msRequestFullscreen();
+                }
+                // Change icon to compress when in fullscreen
+                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                // Change icon back to expand
+                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+            }
+        }
+        
+        // Listen for fullscreen change to update button icon
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+        
+        function handleFullscreenChange() {
+            if (!document.fullscreenElement && 
+                !document.webkitFullscreenElement && 
+                !document.mozFullScreenElement && 
+                !document.msFullscreenElement) {
+                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+            }
+        }
+        
+        // ==================== AUTO ROTATE FOR MOBILE ====================
+        function lockLandscape() {
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('landscape').catch(function(error) {
+                    console.log('Orientation lock failed: ', error);
+                });
+            } else if (screen.lockOrientation) {
+                screen.lockOrientation('landscape');
+            } else if (screen.mozLockOrientation) {
+                screen.mozLockOrientation('landscape');
+            } else if (screen.msLockOrientation) {
+                screen.msLockOrientation('landscape');
+            }
+        }
+        
+        function unlockOrientation() {
+            if (screen.orientation && screen.orientation.unlock) {
+                screen.orientation.unlock();
+            } else if (screen.unlockOrientation) {
+                screen.unlockOrientation();
+            } else if (screen.mozUnlockOrientation) {
+                screen.mozUnlockOrientation();
+            } else if (screen.msUnlockOrientation) {
+                screen.msUnlockOrientation();
+            }
+        }
+        
+        // Auto rotate when entering fullscreen on mobile
+        videoContainer.addEventListener('fullscreenchange', function() {
+            if (window.innerWidth <= 768) {
+                if (document.fullscreenElement || 
+                    document.webkitFullscreenElement || 
+                    document.mozFullScreenElement || 
+                    document.msFullscreenElement) {
+                    lockLandscape();
+                } else {
+                    unlockOrientation();
+                }
+            }
+        });
+        
+        // ==================== IMPROVED MARQUEE WITH SMOOTH LOOP ====================
+        function setupMarquee() {
+            const marqueeContent = document.querySelector('.marquee-content');
+            const marqueeText = document.querySelector('.marquee-text');
+            
+            // Duplicate the text for seamless looping
+            const originalText = marqueeText.innerHTML;
+            marqueeText.innerHTML = originalText + ' | ' + originalText + ' | ' + originalText;
+            
+            // Adjust animation speed based on text length
+            const textLength = marqueeText.textContent.length;
+            let animationDuration = 120; // base duration in seconds
+            
+            if (textLength > 500) {
+                animationDuration = 180; // slower for longer text
+            } else if (textLength < 200) {
+                animationDuration = 90; // faster for shorter text
+            }
+            
+            // Set the animation duration
+            marqueeContent.style.animationDuration = `${animationDuration}s`;
+            
+            // Handle animation iteration to create infinite loop
+            marqueeContent.addEventListener('animationiteration', function() {
+                // This ensures the animation restarts smoothly
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 10);
+            });
+        }
+        
+        // ==================== KONFIGURASI ====================
+        const API_KEY = '3575a6cbf5a4b098c77b3caf87340eb7'; // Ganti dengan API key Anda
+        const API_BASE = 'https://v3.football.api-sports.io';
+        
+        // ==================== EKSTRAK NAMA TIM DARI NAMA FILE ====================
+        function extractTeamsFromFilename() {
+            // Ambil nama file dari URL (tanpa .html)
+            const path = window.location.pathname;
+            const filename = path.split('/').pop().replace('.html', '');
+            
+            console.log('Filename:', filename);
+            
+            // Format: team1-vs-team2 atau team1-vs-team2-sekarang
+            // Hapus kata "sekarang" jika ada
+            const cleanFilename = filename.replace('-sekarang', '');
+            
+            // Split berdasarkan "-vs-"
+            if (cleanFilename.includes('-vs-')) {
+                const teams = cleanFilename.split('-vs-');
+                if (teams.length === 2) {
+                    // Konversi format: liverpool -> Liverpool, manchester-city -> Manchester City
+                    const homeTeam = formatTeamName(teams[0]);
+                    const awayTeam = formatTeamName(teams[1]);
+                    
+                    console.log('Extracted teams:', { homeTeam, awayTeam });
+                    return { homeTeam, awayTeam };
+                }
+            }
+            
+            // Jika tidak sesuai format, gunakan default
+            console.log('Using default teams');
+            return { 
+                homeTeam: 'Liverpool', 
+                awayTeam: 'Manchester City' 
+            };
+        }
+
+        // Format nama tim dari kebab-case ke proper case
+        function formatTeamName(kebabName) {
+            return kebabName
+                .split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+        }
+
+        // ==================== FUNGSI UTAMA ====================
+        
+        // 1. Cari pertandingan berdasarkan nama tim
+        async function findMatchByTeams(homeTeamName, awayTeamName) {
+            const headers = {
+                'x-rapidapi-key': API_KEY,
+                'x-rapidapi-host': 'v3.football.api-sports.io'
+            };
+
+            try {
+                const today = new Date().toISOString().split('T')[0];
+                
+                // Pencarian berdasarkan tanggal hari ini
+                const response = await fetch(`${API_BASE}/fixtures?date=${today}`, { 
+                    headers 
+                });
+                
+                const data = await response.json();
+                
+                if (data.response && data.response.length > 0) {
+                    // Cari pertandingan yang cocok dengan nama tim
+                    const matches = data.response;
+                    
+                    // Fungsi untuk menormalisasi nama tim (case insensitive, tanpa spasi berlebih)
+                    const normalizeTeamName = (name) => {
+                        return name.toLowerCase().replace(/\s+/g, ' ').trim();
+                    };
+                    
+                    const normalizedHome = normalizeTeamName(homeTeamName);
+                    const normalizedAway = normalizeTeamName(awayTeamName);
+                    
+                    // Cari match yang tepat
+                    let exactMatch = matches.find(match => {
+                        const matchHome = normalizeTeamName(match.teams.home.name);
+                        const matchAway = normalizeTeamName(match.teams.away.name);
+                        
+                        // Cocokkan kedua tim
+                        return (matchHome.includes(normalizedHome) || normalizedHome.includes(matchHome)) &&
+                               (matchAway.includes(normalizedAway) || normalizedAway.includes(matchAway));
+                    });
+                    
+                    // Jika tidak ditemukan exact match, cari partial match
+                    if (!exactMatch) {
+                        exactMatch = matches.find(match => {
+                            const matchHome = normalizeTeamName(match.teams.home.name);
+                            const matchAway = normalizeTeamName(match.teams.away.name);
+                            
+                            // Cocokkan salah satu tim
+                            return matchHome.includes(normalizedHome) || 
+                                   matchAway.includes(normalizedAway) ||
+                                   matchHome.includes(normalizedAway) ||
+                                   matchAway.includes(normalizedHome);
+                        });
+                    }
+                    
+                    if (exactMatch) {
+                        console.log('Found match by team names:', exactMatch);
+                        return exactMatch;
+                    }
+                }
+                
+                // Jika tidak ditemukan hari ini, cari pertandingan terbaru
+                console.log('Searching for latest match between teams...');
+                const searchResponse = await fetch(`${API_BASE}/teams?search=${homeTeamName}`, { 
+                    headers 
+                });
+                
+                const teamData = await searchResponse.json();
+                
+                if (teamData.response && teamData.response.length > 0) {
+                    const teamId = teamData.response[0].team.id;
+                    
+                    // Cari fixture untuk team ini
+                    const fixturesResponse = await fetch(`${API_BASE}/fixtures?team=${teamId}&last=10`, { 
+                        headers 
+                    });
+                    
+                    const fixturesData = await fixturesResponse.json();
+                    
+                    if (fixturesData.response && fixturesData.response.length > 0) {
+                        // Cari vs away team
+                        const normalizeName = (name) => name.toLowerCase().replace(/\s+/g, ' ').trim();
+                        const targetAway = normalizeName(awayTeamName);
+                        
+                        const foundMatch = fixturesData.response.find(match => {
+                            const awayName = normalizeName(match.teams.away.name);
+                            const homeName = normalizeName(match.teams.home.name);
+                            
+                            return awayName.includes(targetAway) || 
+                                   targetAway.includes(awayName) ||
+                                   homeName.includes(targetAway) ||
+                                   targetAway.includes(homeName);
+                        });
+                        
+                        if (foundMatch) {
+                            console.log('Found historical match:', foundMatch);
+                            return foundMatch;
+                        }
+                    }
+                }
+                
+                // Fallback: ambil pertandingan live pertama
+                console.log('Falling back to live match...');
+                const liveResponse = await fetch(`${API_BASE}/fixtures?date=${today}&status=live`, { 
+                    headers 
+                });
+                
+                const liveData = await liveResponse.json();
+                
+                if (liveData.response && liveData.response.length > 0) {
+                    return liveData.response[0];
+                }
+                
+                // Fallback: ambil pertandingan terbaru
+                const latestResponse = await fetch(`${API_BASE}/fixtures?last=1`, { 
+                    headers 
+                });
+                
+                const latestData = await latestResponse.json();
+                
+                return latestData.response ? latestData.response[0] : null;
+                
+            } catch (error) {
+                console.error('Error finding match by teams:', error);
+                return null;
+            }
+        }
+
+        // 2. Ambil data lengkap pertandingan
+        async function getMatchData(matchId) {
+            const headers = {
+                'x-rapidapi-key': API_KEY,
+                'x-rapidapi-host': 'v3.football.api-sports.io'
+            };
+
+            try {
+                // Ambil data fixture
+                const fixtureResponse = await fetch(`${API_BASE}/fixtures?id=${matchId}`, { headers });
+                const fixtureData = await fixtureResponse.json();
+                
+                // Ambil statistik
+                const statsResponse = await fetch(`${API_BASE}/fixtures/statistics?fixture=${matchId}`, { headers });
+                const statsData = await statsResponse.json();
+                
+                // Ambil odds
+                const oddsResponse = await fetch(`${API_BASE}/odds?fixture=${matchId}`, { headers });
+                const oddsData = await oddsResponse.json();
+                
+                return {
+                    fixture: fixtureData.response[0],
+                    statistics: statsData.response,
+                    odds: oddsData.response
+                };
+                
+            } catch (error) {
+                console.error('Error fetching match data:', error);
+                return null;
+            }
+        }
+
+        // 3. Format tanggal Indonesia
+        function formatIndonesianDate(dateString) {
+            const date = new Date(dateString);
+            const options = { 
+                weekday: 'long',
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            return date.toLocaleDateString('id-ID', options);
+        }
+
+        // 4. Format waktu Indonesia
+        function formatIndonesianTime(dateString) {
+            const date = new Date(dateString);
+            const options = { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: false,
+                timeZone: 'Asia/Jakarta'
+            };
+            return date.toLocaleTimeString('id-ID', options) + ' WIB';
+        }
+
+        // 5. Tampilkan/hilangkan LIVE badge berdasarkan status
+        function updateLiveBadge(status) {
+            const liveBadgeContainer = document.getElementById('liveBadgeContainer');
+            
+            if (status === 'LIVE' || status === '1H' || status === '2H' || status === 'HT' || status === 'ET') {
+                liveBadgeContainer.innerHTML = '<span class="live-badge">🔴 LIVE</span>';
+                liveBadgeContainer.style.display = 'block';
+            } else {
+                liveBadgeContainer.innerHTML = '';
+                liveBadgeContainer.style.display = 'none';
+            }
+        }
+
+        // 6. Update status dengan warna berbeda
+        function updateMatchStatus(status) {
+            const statusElement = document.getElementById('matchStatus');
+            const shortStatus = status.short;
+            const longStatus = status.long;
+            
+            statusElement.textContent = longStatus;
+            
+            // Reset class
+            statusElement.className = 'match-status';
+            
+            // Tambahkan class berdasarkan status
+            if (shortStatus === 'FT' || shortStatus === 'AET' || shortStatus === 'PEN') {
+                statusElement.classList.add('finished');
+            } else if (shortStatus === 'NS' || shortStatus === 'TBD') {
+                statusElement.classList.add('not-started');
+            }
+            // Untuk status LIVE (1H, 2H, HT, ET, LIVE) tetap menggunakan warna default (merah)
+        }
+
+        // 7. Update UI dengan data pertandingan
+        function updateMatchUI(data) {
+            if (!data || !data.fixture) {
+                showError('Tidak dapat memuat data pertandingan');
+                return;
+            }
+
+            const fixture = data.fixture;
+            const league = fixture.league;
+            const teams = fixture.teams;
+            const goals = fixture.goals;
+            const status = fixture.fixture.status;
+            const fixtureDate = fixture.fixture.date;
+            const venue = fixture.fixture.venue;
+
+            // Update match info - NAMA LIGA DARI API
+            document.getElementById('leagueName').textContent = league.name;
+            document.getElementById('leagueLogo').src = league.logo;
+            
+            // Update status pertandingan
+            updateMatchStatus(status);
+            
+            // Update LIVE badge (tampilkan hanya jika live)
+            updateLiveBadge(status.short);
+            
+            // Update match title
+            document.getElementById('matchTitle').textContent = `${teams.home.name} vs ${teams.away.name}`;
+            
+            // Update tanggal dan waktu
+            document.getElementById('matchDate').innerHTML = 
+                `<i class="far fa-calendar-alt"></i> ${formatIndonesianDate(fixtureDate)}`;
+            document.getElementById('matchTime').innerHTML = 
+                `<i class="far fa-clock"></i> ${formatIndonesianTime(fixtureDate)}`;
+            
+            // Update venue
+            const venueName = venue.name || 'Stadion';
+            const venueCity = venue.city || 'Kota tidak diketahui';
+            document.getElementById('matchVenue').innerHTML = 
+                `<i class="fas fa-map-marker-alt"></i> ${venueName} - ${venueCity}`;
+            
+            // Update team info
+            document.getElementById('homeName').textContent = teams.home.name;
+            document.getElementById('awayName').textContent = teams.away.name;
+            document.getElementById('homeLogo').src = teams.home.logo;
+            document.getElementById('awayLogo').src = teams.away.logo;
+            
+            // Update score
+            const homeScore = goals.home !== null ? goals.home : 0;
+            const awayScore = goals.away !== null ? goals.away : 0;
+            document.getElementById('scoreDisplay').textContent = `${homeScore} : ${awayScore}`;
+            
+            // Update menit pertandingan (hanya jika sedang berlangsung)
+            const minutes = status.elapsed || 0;
+            if (minutes > 0) {
+                document.getElementById('matchMinutes').textContent = `${minutes}'`;
+                document.getElementById('matchMinutes').style.display = 'block';
+            } else {
+                document.getElementById('matchMinutes').style.display = 'none';
+            }
+            
+            // Update statistics
+            updateStatisticsUI(data.statistics);
+            
+            // Update odds
+            updateOddsUI(data.odds);
+            
+            // Update timestamp
+            document.getElementById('updateTime').textContent = 
+                `Data diperbarui: ${new Date().toLocaleTimeString('id-ID')}`;
+        }
+
+        // 8. Update statistik
+        function updateStatisticsUI(statsData) {
+            const statsContainer = document.getElementById('matchStatistics');
+            
+            if (!statsData || statsData.length === 0) {
+                statsContainer.innerHTML = '<div class="api-error">Statistik tidak tersedia</div>';
+                return;
+            }
+
+            const statistics = statsData[0]?.statistics || [];
+            
+            // Filter statistik yang penting
+            const importantStats = ['Ball Possession', 'Total Shots', 'Shots on Goal', 
+                                  'Shots off Goal', 'Corner Kicks', 'Fouls', 
+                                  'Yellow Cards', 'Red Cards'];
+            
+            let statsHTML = '';
+            
+            statistics.forEach(stat => {
+                if (importantStats.includes(stat.type)) {
+                    let homeValue = stat.home;
+                    let awayValue = stat.away;
+                    
+                    // Handle percentage stats
+                    if (stat.type === 'Ball Possession') {
+                        homeValue = homeValue || 50;
+                        awayValue = awayValue || 50;
+                        
+                        statsHTML += `
+                            <div class="stat-item">
+                                <div class="stat-label">${stat.type}</div>
+                                <div class="stat-bar-container">
+                                    <div class="stat-value">${homeValue}%</div>
+                                    <div class="stat-bar">
+                                        <div class="stat-bar-fill" style="width: ${homeValue}%"></div>
+                                    </div>
+                                    <div class="stat-value">${awayValue}%</div>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        // For other stats
+                        statsHTML += `
+                            <div class="stat-item">
+                                <div class="stat-label">${stat.type}</div>
+                                <div class="stat-bar-container">
+                                    <div class="stat-value">${homeValue || 0}</div>
+                                    <div class="stat-bar">
+                                        <div class="stat-bar-fill" style="width: ${calculatePercentage(homeValue, awayValue)}%"></div>
+                                    </div>
+                                    <div class="stat-value">${awayValue || 0}</div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+            });
+
+            if (statsHTML === '') {
+                // Jika tidak ada statistik, tampilkan default
+                statsHTML = createDefaultStatistics();
+            }
+            
+            statsContainer.innerHTML = statsHTML;
+        }
+
+        // 9. Update odds - DIPERBAIKI
+        function updateOddsUI(oddsData) {
+            const oddsContainer = document.getElementById('oddsContainer');
+            
+            if (!oddsData || oddsData.length === 0) {
+                oddsContainer.innerHTML = `
+                    <div class="api-error">
+                        Odds tidak tersedia untuk pertandingan ini
+                    </div>
+                `;
+                return;
+            }
+
+            // Ambil odds dari bookmarker pertama
+            const bookmaker = oddsData[0]?.bookmakers[0];
+            if (!bookmaker || !bookmaker.bets) {
+                oddsContainer.innerHTML = `
+                    <div class="api-error">
+                        Data odds tidak lengkap
+                    </div>
+                `;
+                return;
+            }
+
+            // Cari odds untuk 1X2
+            const matchOdds = bookmaker.bets.find(bet => bet.name === 'Match Winner');
+            
+            if (!matchOdds) {
+                oddsContainer.innerHTML = `
+                    <div class="api-error">
+                        Odds 1X2 tidak tersedia
+                    </div>
+                `;
+                return;
+            }
+
+            // Ekstrak nilai odds
+            let homeOdds = 2.00;
+            let drawOdds = 3.20;
+            let awayOdds = 3.50;
+            
+            matchOdds.values.forEach(value => {
+                if (value.value === 'Home') homeOdds = parseFloat(value.odd).toFixed(2);
+                if (value.value === 'Draw') drawOdds = parseFloat(value.odd).toFixed(2);
+                if (value.value === 'Away') awayOdds = parseFloat(value.odd).toFixed(2);
+            });
+
+            // Tentukan kelas warna berdasarkan nilai odds
+            const getOddColorClass = (odd) => {
+                const num = parseFloat(odd);
+                if (num < 2.0) return 'high'; // Peluang tinggi (hijau)
+                if (num >= 2.0 && num <= 3.0) return 'medium'; // Peluang sedang (kuning)
+                return 'low'; // Peluang rendah (merah)
+            };
+
+            oddsContainer.innerHTML = `
+                <div class="odds-grid">
+                    <div class="odd-item">
+                        <div class="odd-header">
+                            <span>1X2</span>
+                            <span>${bookmaker.name}</span>
+                        </div>
+                        <div class="odd-values">
+                            <div class="odd-value">
+                                <div class="odd-label">1 (Home)</div>
+                                <div class="odd-number ${getOddColorClass(homeOdds)}">${homeOdds}</div>
+                            </div>
+                            <div class="odd-value">
+                                <div class="odd-label">X (Draw)</div>
+                                <div class="odd-number ${getOddColorClass(drawOdds)}">${drawOdds}</div>
+                            </div>
+                            <div class="odd-value">
+                                <div class="odd-label">2 (Away)</div>
+                                <div class="odd-number ${getOddColorClass(awayOdds)}">${awayOdds}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ==================== FUNGSI BANTU ====================
+        
+        function calculatePercentage(home, away) {
+            const total = (parseInt(home) || 0) + (parseInt(away) || 0);
+            if (total === 0) return 50;
+            return Math.round(((parseInt(home) || 0) / total) * 100);
+        }
+
+        function createDefaultStatistics() {
+            return `
+                <div class="stat-item">
+                    <div class="stat-label">Ball Possession</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-value">50%</div>
+                        <div class="stat-bar">
+                            <div class="stat-bar-fill" style="width: 50%"></div>
+                        </div>
+                        <div class="stat-value">50%</div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Total Shots</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-value">8</div>
+                        <div class="stat-bar">
+                            <div class="stat-bar-fill" style="width: 50%"></div>
+                        </div>
+                        <div class="stat-value">8</div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Shots on Goal</div>
+                    <div class="stat-bar-container">
+                        <div class="stat-value">4</div>
+                        <div class="stat-bar">
+                            <div class="stat-bar-fill" style="width: 50%"></div>
+                        </div>
+                        <div class="stat-value">4</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showError(message) {
+            document.getElementById('matchStatistics').innerHTML = `
+                <div class="api-error">${message}</div>
+            `;
+            document.getElementById('oddsContainer').innerHTML = `
+                <div class="api-error">${message}</div>
+            `;
+        }
+
+        // ==================== INISIALISASI ====================
+        
+        async function initializeApp() {
+            console.log('Mencari pertandingan berdasarkan nama file...');
+            
+            // 1. Ekstrak nama tim dari nama file
+            const { homeTeam, awayTeam } = extractTeamsFromFilename();
+            
+            // Tampilkan loading state dengan nama tim dari filename
+            document.getElementById('matchTitle').textContent = `${homeTeam} vs ${awayTeam}`;
+            document.getElementById('homeName').textContent = homeTeam;
+            document.getElementById('awayName').textContent = awayTeam;
+            document.getElementById('matchDate').innerHTML = '<i class="far fa-calendar-alt"></i> Mencari...';
+            document.getElementById('matchTime').innerHTML = '<i class="far fa-clock"></i> Mencari...';
+            document.getElementById('matchVenue').innerHTML = '<i class="fas fa-map-marker-alt"></i> Mencari...';
+            
+            // 2. Cari pertandingan berdasarkan nama tim
+            console.log(`Mencari pertandingan: ${homeTeam} vs ${awayTeam}`);
+            const match = await findMatchByTeams(homeTeam, awayTeam);
+            
+            if (!match) {
+                showError(`Tidak ditemukan pertandingan ${homeTeam} vs ${awayTeam}`);
+                document.getElementById('matchTitle').textContent = `${homeTeam} vs ${awayTeam}`;
+                return;
+            }
+            
+            // 3. Ambil data lengkap pertandingan
+            const matchId = match.fixture.id;
+            const matchData = await getMatchData(matchId);
+            
+            // 4. Update UI
+            updateMatchUI(matchData);
+            
+            // 5. Setup auto-refresh setiap 30 detik (jika match live)
+            if (match.fixture.status.short === 'LIVE' || 
+                match.fixture.status.short === '1H' || 
+                match.fixture.status.short === '2H' ||
+                match.fixture.status.short === 'HT' ||
+                match.fixture.status.short === 'ET') {
+                
+                setInterval(async () => {
+                    console.log('Memperbarui data live...');
+                    const updatedData = await getMatchData(matchId);
+                    updateMatchUI(updatedData);
+                }, 30000); // 30 detik
+            }
+        }
+
+        // ==================== EVENT LISTENERS ====================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup marquee dengan loop yang smooth
+            setupMarquee();
+            
+            // Cek API key
+            if (API_KEY === 'YOUR_API_FOOTBALL_KEY_HERE') {
+                showError('Silakan atur API key terlebih dahulu');
+                document.getElementById('matchTitle').textContent = 'API KEY BELUM DISETTING';
+                return;
+            }
+            
+            // Jalankan aplikasi
+            initializeApp();
+        });
+
+        // Fallback jika halaman tidak responsif
+        setTimeout(() => {
+            if (document.getElementById('matchTitle').textContent.includes('Mencari')) {
+                showError('Mengalami masalah koneksi. Silakan refresh halaman.');
+            }
+        }, 15000);
+    </script>
+
+    <!-- ==================== LIVE CHAT (FIREBASE) ==================== -->
+    <!-- SDK Firebase (versi compat, ringan & cukup untuk chat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script>
+    /*
+     * ============================================================
+     *  CARA SETUP LIVE CHAT (sekali saja, dipakai semua match)
+     * ============================================================
+     *  1. Buka https://console.firebase.google.com -> Add project (gratis).
+     *  2. Menu "Build" -> "Realtime Database" -> Create Database
+     *     -> pilih lokasi -> mode "Start in test mode" (bisa diperketat nanti).
+     *  3. Klik ikon gear (Project settings) -> bagian "Your apps"
+     *     -> pilih Web (</>) -> daftarkan app -> SALIN object firebaseConfig.
+     *  4. Tempel nilainya ke FIREBASE_CONFIG di bawah ini.
+     *
+     *  Setelah itu SEMUA file match (liverpool-vs-chelsea.html, dst)
+     *  otomatis punya room chat sendiri-sendiri tanpa diubah lagi,
+     *  karena nama room diambil dari nama file (slug pertandingan).
+     * ============================================================
+     */
+    const FIREBASE_CONFIG = {
+        apiKey: "ISI_API_KEY_DISINI",
+        authDomain: "ISI_PROJECT.firebaseapp.com",
+        databaseURL: "https://ISI_PROJECT-default-rtdb.firebaseio.com",
+        projectId: "ISI_PROJECT",
+        storageBucket: "ISI_PROJECT.appspot.com",
+        messagingSenderId: "ISI_SENDER_ID",
+        appId: "ISI_APP_ID"
+    };
+
+    (function () {
+        // ---------- Elemen ----------
+        const messagesEl = document.getElementById('chatMessages');
+        const statusEl   = document.getElementById('chatStatus');
+        const roomLabel  = document.getElementById('livechatRoom');
+        const formEl     = document.getElementById('chatForm');
+        const inputEl    = document.getElementById('chatInput');
+        const nameEl     = document.getElementById('chatName');
+        const sendBtn    = document.getElementById('chatSend');
+
+        // ---------- Room unik per match (dari nama file) ----------
+        // Contoh file: "liverpool-vs-manchester-city.html"
+        // -> roomId: "liverpool-vs-manchester-city"
+        function getRoomId() {
+            let slug = window.location.pathname.split('/').pop() || 'lobby';
+            slug = slug.replace(/\.html?$/i, '').replace(/-sekarang$/i, '');
+            // Bersihkan karakter yang dilarang di path Firebase ( . # $ [ ] / )
+            slug = slug.toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '');
+            return slug || 'lobby';
+        }
+
+        // Ubah slug jadi judul yang enak dibaca untuk label room
+        function prettyRoom(slug) {
+            if (slug.includes('-vs-')) {
+                return slug.split('-vs-')
+                    .map(s => s.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()))
+                    .join(' vs ');
+            }
+            return slug.replace(/-/g, ' ');
+        }
+
+        const ROOM_ID = getRoomId();
+        roomLabel.textContent = '# ' + prettyRoom(ROOM_ID);
+
+        // ---------- Nama pengguna (diingat di browser) ----------
+        const NAME_KEY = 'lb21_chat_name';
+        nameEl.value = localStorage.getItem(NAME_KEY) || '';
+        nameEl.addEventListener('change', () => {
+            localStorage.setItem(NAME_KEY, nameEl.value.trim());
+        });
+
+        // ---------- Anti XSS ----------
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+        }
+
+        function formatTime(ts) {
+            try {
+                return new Date(ts).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+            } catch (e) { return ''; }
+        }
+
+        function setStatus(text) {
+            statusEl.textContent = text;
+            statusEl.style.display = text ? 'block' : 'none';
+        }
+
+        function renderMessage(msg) {
+            const myName = (nameEl.value || '').trim();
+            const isMe = myName && msg.name === myName;
+            const wrap = document.createElement('div');
+            wrap.className = 'chat-msg' + (isMe ? ' is-me' : '');
+            wrap.innerHTML =
+                '<div class="chat-msg-meta">' +
+                    '<span>' + escapeHtml(msg.name || 'Anonim') + '</span>' +
+                    '<span class="chat-msg-time">' + formatTime(msg.ts) + '</span>' +
+                '</div>' +
+                '<div class="chat-msg-bubble">' + escapeHtml(msg.text || '') + '</div>';
+            messagesEl.appendChild(wrap);
+        }
+
+        function scrollToBottom() {
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+        }
+
+        // ---------- Mode belum dikonfigurasi ----------
+        function showNotConfigured() {
+            messagesEl.innerHTML =
+                '<div class="livechat-notice">' +
+                '⚙️ <b>Live chat belum aktif.</b><br>' +
+                'Isi <code>FIREBASE_CONFIG</code> di bagian bawah file ini ' +
+                '(ikuti panduan di komentar). Setelah diisi, setiap match otomatis ' +
+                'punya room chat sendiri.' +
+                '</div>';
+            inputEl.disabled = true;
+            sendBtn.disabled = true;
+            nameEl.disabled = true;
+        }
+
+        if (!FIREBASE_CONFIG.databaseURL || FIREBASE_CONFIG.databaseURL.indexOf('ISI_PROJECT') !== -1) {
+            showNotConfigured();
+            return;
+        }
+
+        // ---------- Inisialisasi Firebase ----------
+        let chatRef;
+        try {
+            firebase.initializeApp(FIREBASE_CONFIG);
+            chatRef = firebase.database().ref('chatrooms/' + ROOM_ID);
+        } catch (err) {
+            console.error('Gagal inisialisasi Firebase:', err);
+            setStatus('Gagal terhubung ke chat. Cek konfigurasi Firebase.');
+            return;
+        }
+
+        // ---------- Dengarkan 80 pesan terakhir ----------
+        let firstLoad = true;
+        const recentRef = chatRef.limitToLast(80);
+
+        recentRef.once('value', () => {
+            firstLoad = false;
+            if (!messagesEl.querySelector('.chat-msg')) {
+                setStatus('Belum ada pesan. Jadilah yang pertama menyapa! 👋');
+            } else {
+                setStatus('');
+            }
+            scrollToBottom();
+        });
+
+        recentRef.on('child_added', (snap) => {
+            const msg = snap.val();
+            if (!msg) return;
+            setStatus('');
+            renderMessage(msg);
+            // Auto-scroll kalau pengguna sudah di dekat bawah, atau saat load awal
+            const nearBottom = messagesEl.scrollHeight - messagesEl.scrollTop - messagesEl.clientHeight < 120;
+            if (firstLoad || nearBottom) scrollToBottom();
+        });
+
+        chatRef.on('child_removed', () => {}); // jaga-jaga bila ada moderasi/hapus
+
+        // ---------- Kirim pesan ----------
+        let lastSent = 0;
+        formEl.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const text = inputEl.value.trim();
+            let name = (nameEl.value || '').trim();
+
+            if (!name) {
+                nameEl.focus();
+                nameEl.placeholder = 'Isi nama dulu ya 🙂';
+                return;
+            }
+            if (!text) return;
+
+            // Rate limit sederhana: 1 pesan / 1.2 detik
+            const now = Date.now();
+            if (now - lastSent < 1200) return;
+            lastSent = now;
+
+            localStorage.setItem(NAME_KEY, name);
+
+            chatRef.push({
+                name: name.substring(0, 20),
+                text: text.substring(0, 300),
+                ts: firebase.database.ServerValue.TIMESTAMP
+            }).catch((err) => {
+                console.error('Gagal mengirim pesan:', err);
+                setStatus('Gagal mengirim pesan. Coba lagi.');
+            });
+
+            inputEl.value = '';
+            inputEl.focus();
+        });
+    })();
+    </script>
+    <!-- ==================== END LIVE CHAT ==================== -->
+
+          <!-- Histats.com  (div with counter) --><center><div id="histats_counter"></div>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5007207,4,219,112,50,00011111']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5007207&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+</body>
+</html>
