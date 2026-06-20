@@ -1410,6 +1410,106 @@
             line-height: 1.4;
         }
 
+        /* ----- Admin / moderasi ----- */
+        .livechat-head-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .livechat-admin-btn {
+            flex-shrink: 0;
+            background: rgba(0, 0, 0, 0.2);
+            border: none;
+            color: rgba(255, 255, 255, 0.85);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .livechat-admin-btn:hover { background: rgba(0, 0, 0, 0.4); }
+
+        .livechat-admin-panel {
+            background: #142a4d;
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .admin-login {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .admin-login input {
+            flex: 1;
+            min-width: 110px;
+            background: #0f3460;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 7px 10px;
+            color: #fff;
+            font-size: 0.82rem;
+            outline: none;
+        }
+
+        .admin-login button,
+        .admin-bar button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: #fff;
+            padding: 7px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .admin-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            font-size: 0.82rem;
+        }
+
+        .admin-bar .admin-flag { color: #4cd964; font-weight: bold; flex: 1; }
+        .admin-bar button.danger { background: #ff4757; }
+
+        .admin-msg {
+            font-size: 0.75rem;
+            color: #ffa502;
+            margin-top: 6px;
+            min-height: 0;
+        }
+
+        /* Tombol hapus per pesan: hanya terlihat saat mode admin aktif */
+        .chat-del {
+            display: none;
+            background: rgba(255, 71, 87, 0.85);
+            border: none;
+            color: #fff;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0.6rem;
+            line-height: 1;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .livechat-section.admin-on .chat-del { display: inline-flex; }
+        .chat-del:hover { background: #ff4757; }
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -1537,7 +1637,27 @@
                         <div class="livechat-title">
                             <span class="dot"></span> Live Room Chat
                         </div>
-                        <div class="livechat-room" id="livechatRoom" title="Room chat untuk pertandingan ini">Memuat room...</div>
+                        <div class="livechat-head-right">
+                            <div class="livechat-room" id="livechatRoom" title="Room chat untuk pertandingan ini">Memuat room...</div>
+                            <button type="button" class="livechat-admin-btn" id="adminToggle" title="Login admin (moderasi)">
+                                <i class="fas fa-lock"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Panel admin (tersembunyi sampai tombol gembok diklik) -->
+                    <div class="livechat-admin-panel" id="adminPanel" style="display:none">
+                        <form class="admin-login" id="adminLoginForm">
+                            <input type="email" id="adminEmail" placeholder="Email admin" autocomplete="username">
+                            <input type="password" id="adminPass" placeholder="Password" autocomplete="current-password">
+                            <button type="submit">Masuk</button>
+                        </form>
+                        <div class="admin-bar" id="adminBar" style="display:none">
+                            <span class="admin-flag">🛡️ Mode admin aktif</span>
+                            <button type="button" class="danger" id="adminClear">Bersihkan semua</button>
+                            <button type="button" id="adminLogout">Keluar</button>
+                        </div>
+                        <div class="admin-msg" id="adminMsg"></div>
                     </div>
 
                     <div class="livechat-messages" id="chatMessages">
@@ -2358,6 +2478,7 @@
     <!-- SDK Firebase (versi compat, ringan & cukup untuk chat) -->
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <script>
     /*
      * ============================================================
@@ -2445,15 +2566,17 @@
             statusEl.style.display = text ? 'block' : 'none';
         }
 
-        function renderMessage(msg) {
+        function renderMessage(msg, key) {
             const myName = (nameEl.value || '').trim();
             const isMe = myName && msg.name === myName;
             const wrap = document.createElement('div');
             wrap.className = 'chat-msg' + (isMe ? ' is-me' : '');
+            if (key) wrap.dataset.key = key;
             wrap.innerHTML =
                 '<div class="chat-msg-meta">' +
                     '<span>' + escapeHtml(msg.name || 'Anonim') + '</span>' +
                     '<span class="chat-msg-time">' + formatTime(msg.ts) + '</span>' +
+                    (key ? '<button type="button" class="chat-del" title="Hapus pesan">&times;</button>' : '') +
                 '</div>' +
                 '<div class="chat-msg-bubble">' + escapeHtml(msg.text || '') + '</div>';
             messagesEl.appendChild(wrap);
@@ -2511,13 +2634,17 @@
             const msg = snap.val();
             if (!msg) return;
             setStatus('');
-            renderMessage(msg);
+            renderMessage(msg, snap.key);
             // Auto-scroll kalau pengguna sudah di dekat bawah, atau saat load awal
             const nearBottom = messagesEl.scrollHeight - messagesEl.scrollTop - messagesEl.clientHeight < 120;
             if (firstLoad || nearBottom) scrollToBottom();
         });
 
-        chatRef.on('child_removed', () => {}); // jaga-jaga bila ada moderasi/hapus
+        // Saat sebuah pesan dihapus admin, hilangkan dari layar semua orang
+        chatRef.on('child_removed', (snap) => {
+            const el = messagesEl.querySelector('[data-key="' + (snap.key || '') + '"]');
+            if (el) el.remove();
+        });
 
         // ---------- Kirim pesan ----------
         let lastSent = 0;
@@ -2551,6 +2678,113 @@
 
             inputEl.value = '';
             inputEl.focus();
+        });
+
+        // ============================================================
+        //  PANEL ADMIN / MODERASI
+        //  - Login pakai akun admin (Firebase Authentication, Email/Password)
+        //  - Setelah login & terverifikasi admin: muncul tombol hapus per
+        //    pesan + tombol "Bersihkan semua". Pengunjung biasa TIDAK bisa
+        //    menghapus (dijaga oleh Realtime Database Rules).
+        //  Setup: lihat README (aktifkan Email/Password, buat akun admin,
+        //  daftarkan UID-nya di node /admins, lalu publish rules).
+        // ============================================================
+        const adminToggle = document.getElementById('adminToggle');
+        const adminPanel  = document.getElementById('adminPanel');
+        const adminLogin  = document.getElementById('adminLoginForm');
+        const adminBar    = document.getElementById('adminBar');
+        const adminEmail  = document.getElementById('adminEmail');
+        const adminPass   = document.getElementById('adminPass');
+        const adminClear  = document.getElementById('adminClear');
+        const adminLogout = document.getElementById('adminLogout');
+        const adminMsg    = document.getElementById('adminMsg');
+        const section     = document.getElementById('livechatSection');
+
+        let auth = null;
+        try { auth = firebase.auth(); } catch (e) { /* auth SDK tidak ada */ }
+
+        // Buka/tutup panel saat ikon gembok diklik
+        adminToggle.addEventListener('click', () => {
+            adminPanel.style.display = (adminPanel.style.display === 'none') ? 'block' : 'none';
+        });
+
+        function setAdminMsg(t) { adminMsg.textContent = t || ''; }
+
+        function enterAdminMode() {
+            section.classList.add('admin-on');
+            adminLogin.style.display = 'none';
+            adminBar.style.display = 'flex';
+            setAdminMsg('');
+        }
+
+        function exitAdminMode() {
+            section.classList.remove('admin-on');
+            adminLogin.style.display = 'flex';
+            adminBar.style.display = 'none';
+        }
+
+        if (auth) {
+            // Pantau status login; verifikasi apakah user adalah admin
+            auth.onAuthStateChanged((user) => {
+                if (!user) { exitAdminMode(); return; }
+                // Cek node /admins/<uid> (rules mengizinkan user membaca miliknya)
+                firebase.database().ref('admins/' + user.uid).once('value')
+                    .then((snap) => {
+                        if (snap.exists()) {
+                            enterAdminMode();
+                        } else {
+                            setAdminMsg('Akun ini bukan admin.');
+                            auth.signOut();
+                        }
+                    })
+                    .catch(() => {
+                        // Bila tidak bisa membaca, tetap coba mode admin;
+                        // aksi hapus akan tervalidasi oleh rules di server.
+                        enterAdminMode();
+                    });
+            });
+
+            adminLogin.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = (adminEmail.value || '').trim();
+                const pass  = adminPass.value || '';
+                if (!email || !pass) return;
+                setAdminMsg('Memproses...');
+                auth.signInWithEmailAndPassword(email, pass)
+                    .then(() => { adminPass.value = ''; })
+                    .catch((err) => {
+                        console.error('Login admin gagal:', err);
+                        setAdminMsg('Login gagal. Periksa email/password.');
+                    });
+            });
+
+            adminLogout.addEventListener('click', () => { auth.signOut(); });
+        } else {
+            adminLogin.innerHTML = '<div class="admin-msg">SDK auth tidak termuat.</div>';
+        }
+
+        // Hapus satu pesan (klik tombol × pada pesan saat mode admin)
+        messagesEl.addEventListener('click', (e) => {
+            const btn = e.target.closest('.chat-del');
+            if (!btn || !section.classList.contains('admin-on')) return;
+            const wrap = btn.closest('.chat-msg');
+            const key = wrap && wrap.dataset.key;
+            if (!key) return;
+            chatRef.child(key).remove().catch((err) => {
+                console.error('Gagal menghapus pesan:', err);
+                setAdminMsg('Gagal menghapus (cek rules/izin admin).');
+            });
+        });
+
+        // Bersihkan semua pesan di room ini
+        adminClear.addEventListener('click', () => {
+            if (!confirm('Hapus SEMUA pesan di room "' + prettyRoom(ROOM_ID) + '"?')) return;
+            chatRef.remove()
+                .then(() => { messagesEl.innerHTML = ''; setStatus('Chat dibersihkan. 👋'); })
+                .catch((err) => {
+                    console.error('Gagal membersihkan chat:', err);
+                    setAdminMsg('Gagal membersihkan (cek rules/izin admin).');
+                });
         });
     })();
     </script>

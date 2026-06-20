@@ -46,3 +46,28 @@ Firebase Console → **Realtime Database → Rules** → tempel isi
 `database.rules.json` → **Publish**. (API key Firebase aman tampil di kode
 klien — itu identitas project, bukan rahasia; yang melindungi data adalah
 rules ini.)
+
+## Moderasi: panel admin (hapus komentar)
+
+Di header chat ada ikon **gembok 🔒**. Klik → login admin → muncul tombol
+**hapus (×)** di tiap pesan dan tombol **"Bersihkan semua"** untuk mengosongkan
+room. Pengunjung biasa tidak bisa menghapus (dijaga oleh rules).
+
+Aktifkan sekali seperti ini:
+
+1. **Authentication → Sign-in method → Email/Password → Enable.**
+2. **Authentication → Users → Add user** → buat akun admin (email + password).
+   Ini akun login moderasi kamu (bukan untuk pengunjung).
+3. Salin **User UID** akun admin tadi.
+4. **Realtime Database → Data** → buat node:
+   `admins` → tambahkan child dengan **nama = UID admin** dan **nilai = `true`**.
+   Jadi strukturnya: `admins/<UID_ADMIN> = true`.
+5. Pastikan **rules sudah di-Publish** dari `database.rules.json` (rules versi
+   ini hanya mengizinkan akun yang terdaftar di `/admins` untuk menghapus).
+
+Setelah itu: buka halaman match mana pun → klik gembok → masuk dengan akun
+admin → hapus pesan yang tidak diinginkan. Penghapusan langsung hilang di layar
+semua pengunjung secara real-time.
+
+> Alternatif tanpa panel: kamu juga tetap bisa menghapus manual lewat
+> **Firebase Console → Realtime Database → Data** (hover pesan → tombol ✕).
