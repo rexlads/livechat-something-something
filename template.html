@@ -1410,20 +1410,6 @@
             line-height: 1.4;
         }
 
-        /* Desktop (>=1024px): chat tetap di sidebar (urutan alami DOM:
-           statistik -> odds -> chat). Tablet & mobile (<=1023px): pindahkan
-           chat tepat di bawah statistik pertandingan, di atas odds. */
-        @media (max-width: 1023px) {
-            .sidebar {
-                display: flex;
-                flex-direction: column;
-            }
-            .sidebar > h2        { order: 1; }
-            .match-statistics    { order: 2; }
-            .livechat-section    { order: 3; }
-            .odds-section        { order: 4; }
-        }
-
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -1545,6 +1531,32 @@
                     </a>
                 </div>
 
+                <!-- ============== LIVE ROOM CHAT SECTION ============== -->
+                <div class="livechat-section" id="livechatSection">
+                    <div class="livechat-header">
+                        <div class="livechat-title">
+                            <span class="dot"></span> Live Room Chat
+                        </div>
+                        <div class="livechat-room" id="livechatRoom" title="Room chat untuk pertandingan ini">Memuat room...</div>
+                    </div>
+
+                    <div class="livechat-messages" id="chatMessages">
+                        <div class="chat-system" id="chatStatus">Menghubungkan ke room chat...</div>
+                    </div>
+
+                    <div class="livechat-name-row">
+                        <input type="text" id="chatName" maxlength="20" placeholder="Nama kamu (mis. Andi)" autocomplete="off">
+                    </div>
+
+                    <form class="livechat-input-row" id="chatForm" autocomplete="off">
+                        <input type="text" id="chatInput" maxlength="300" placeholder="Tulis pesan..." autocomplete="off">
+                        <button type="submit" class="livechat-send" id="chatSend" title="Kirim">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+                <!-- ============== END LIVE ROOM CHAT SECTION ============== -->
+
                 <div class="video-info">
                     <div class="match-info" id="matchInfo">
                         <div class="match-league">
@@ -1614,32 +1626,6 @@
                     </div>
                 </div>
                 <!-- ============== END ODDS SECTION ============== -->
-
-                <!-- ============== LIVE CHAT SECTION ============== -->
-                <div class="livechat-section" id="livechatSection">
-                    <div class="livechat-header">
-                        <div class="livechat-title">
-                            <span class="dot"></span> Live Chat
-                        </div>
-                        <div class="livechat-room" id="livechatRoom" title="Room chat untuk pertandingan ini">Memuat room...</div>
-                    </div>
-
-                    <div class="livechat-messages" id="chatMessages">
-                        <div class="chat-system" id="chatStatus">Menghubungkan ke room chat...</div>
-                    </div>
-
-                    <div class="livechat-name-row">
-                        <input type="text" id="chatName" maxlength="20" placeholder="Nama kamu (mis. Andi)" autocomplete="off">
-                    </div>
-
-                    <form class="livechat-input-row" id="chatForm" autocomplete="off">
-                        <input type="text" id="chatInput" maxlength="300" placeholder="Tulis pesan..." autocomplete="off">
-                        <button type="submit" class="livechat-send" id="chatSend" title="Kirim">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-                <!-- ============== END LIVE CHAT SECTION ============== -->
             </div>
         </div>
     </div>

@@ -11,11 +11,11 @@ real-madrid-vs-barcelona.html
 Nama tim, skor, statistik, dan odds otomatis diambil dari nama file via
 API-Football.
 
-## Fitur Live Chat (baru)
+## Fitur Live Room Chat (baru)
 
-Live chat custom yang menyatu dengan tema halaman, ditenagai **Firebase
-Realtime Database** (gratis). Yang penting: **setiap match punya room chat
-sendiri** secara otomatis — `roomId` diambil dari nama file (slug
+Live Room Chat custom yang menyatu dengan tema halaman (tampil di bawah tombol
+Download APK), ditenagai **Firebase Realtime Database** (gratis). Yang penting:
+**setiap match punya room chat sendiri** secara otomatis — `roomId` diambil dari nama file (slug
 `team1-vs-team2`), jadi obrolan di `liverpool-vs-chelsea.html` terpisah dari
 `real-madrid-vs-barcelona.html`.
 
