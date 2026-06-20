@@ -1410,6 +1410,20 @@
             line-height: 1.4;
         }
 
+        /* Desktop (>=1024px): chat tetap di sidebar (urutan alami DOM:
+           statistik -> odds -> chat). Tablet & mobile (<=1023px): pindahkan
+           chat tepat di bawah statistik pertandingan, di atas odds. */
+        @media (max-width: 1023px) {
+            .sidebar {
+                display: flex;
+                flex-direction: column;
+            }
+            .sidebar > h2        { order: 1; }
+            .match-statistics    { order: 2; }
+            .livechat-section    { order: 3; }
+            .odds-section        { order: 4; }
+        }
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
