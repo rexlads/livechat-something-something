@@ -2507,6 +2507,24 @@
         measurementId: "G-WWX3LWJ0JZ"
     };
 
+    /*
+     * ============================================================
+     *  FILTER KATA KASAR
+     * ============================================================
+     *  Kata-kata di bawah ini akan otomatis disensor jadi tanda bintang
+     *  (mis. "anjing" -> "******") saat pesan dikirim DAN saat ditampilkan,
+     *  jadi pesan lama pun ikut tersensor. Tinggal tambah/kurangi sendiri.
+     * ============================================================
+     */
+    const BAD_WORDS = [
+        "anjing", "anjg", "anjir", "asu", "bangsat", "bajingan", "kontol",
+        "memek", "ngentot", " entot", "perek", "pepek", "jancok", "jancuk",
+        "cok", "kunyuk", "kampang", "tolol", "goblok", "bego", "idiot",
+        "babi", "setan", "keparat", "pelacur", "lonte", "sundal", "tai",
+        "tahi", "bgst", "kntl", "mmk", "ngtt", "fuck", "shit", "bitch",
+        "asshole", "dick", "pussy"
+    ];
+
     (function () {
         // ---------- Elemen ----------
         const messagesEl = document.getElementById('chatMessages');
@@ -2555,6 +2573,20 @@
                 .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
         }
 
+        // ---------- Filter kata kasar ----------
+        function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+        // Bangun satu regex dari daftar BAD_WORDS (case-insensitive).
+        const badWordsRe = (Array.isArray(BAD_WORDS) && BAD_WORDS.length)
+            ? new RegExp('\\b(' + BAD_WORDS.map(w => escapeRegex(w.trim())).filter(Boolean).join('|') + ')\\b', 'gi')
+            : null;
+
+        function censorText(str) {
+            const t = String(str || '');
+            if (!badWordsRe) return t;
+            return t.replace(badWordsRe, (m) => '*'.repeat(m.length));
+        }
+
         function formatTime(ts) {
             try {
                 return new Date(ts).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
@@ -2578,7 +2610,7 @@
                     '<span class="chat-msg-time">' + formatTime(msg.ts) + '</span>' +
                     (key ? '<button type="button" class="chat-del" title="Hapus pesan">&times;</button>' : '') +
                 '</div>' +
-                '<div class="chat-msg-bubble">' + escapeHtml(msg.text || '') + '</div>';
+                '<div class="chat-msg-bubble">' + escapeHtml(censorText(msg.text || '')) + '</div>';
             messagesEl.appendChild(wrap);
         }
 
@@ -2668,8 +2700,8 @@
             localStorage.setItem(NAME_KEY, name);
 
             chatRef.push({
-                name: name.substring(0, 20),
-                text: text.substring(0, 300),
+                name: censorText(name).substring(0, 20),
+                text: censorText(text).substring(0, 300),
                 ts: firebase.database.ServerValue.TIMESTAMP
             }).catch((err) => {
                 console.error('Gagal mengirim pesan:', err);

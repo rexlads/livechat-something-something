@@ -31,6 +31,14 @@ Setelah itu semua file match otomatis aktif chat-nya tanpa diubah lagi.
 Selama `FIREBASE_CONFIG` belum diisi, panel chat menampilkan catatan setup dan
 tidak error.
 
+### Filter kata kasar otomatis
+
+Kata kasar otomatis disensor jadi tanda bintang (mis. `anjing` → `******`),
+baik saat dikirim maupun saat ditampilkan (pesan lama pun ikut tersensor).
+Daftar katanya ada di konstanta `BAD_WORDS` di bagian atas script chat di
+`template.html` — tinggal tambah/kurangi sendiri. Filter memakai batas kata
+sehingga tidak salah menyensor kata wajar (mis. "analisis" aman).
+
 ### Catatan keamanan
 
 - Pesan di-escape (anti-XSS) sebelum ditampilkan.
