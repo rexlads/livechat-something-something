@@ -35,5 +35,14 @@ tidak error.
 
 - Pesan di-escape (anti-XSS) sebelum ditampilkan.
 - Ada rate-limit sederhana (1 pesan / 1.2 detik) di sisi klien.
-- Untuk produksi, perketat **Realtime Database Rules** (mis. batasi panjang
-  pesan & izinkan tulis hanya ke path `chatrooms`).
+- Untuk produksi, perketat **Realtime Database Rules**. Sudah disediakan di
+  [`database.rules.json`](database.rules.json): tulis hanya diizinkan ke path
+  `chatrooms`, nama maks 20 karakter, pesan 1–300 karakter, dan field selain
+  `name`/`text`/`ts` ditolak.
+
+### Cara menerapkan rules
+
+Firebase Console → **Realtime Database → Rules** → tempel isi
+`database.rules.json` → **Publish**. (API key Firebase aman tampil di kode
+klien — itu identitas project, bukan rahasia; yang melindungi data adalah
+rules ini.)

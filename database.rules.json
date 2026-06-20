@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "chatrooms": {
+      "$room": {
+        ".read": true,
+        ".write": "!data.exists() || newData.exists()",
+        "$msg": {
+          ".validate": "newData.hasChildren(['name','text','ts']) && newData.child('text').isString() && newData.child('text').val().length <= 300 && newData.child('name').isString() && newData.child('name').val().length <= 20 && newData.child('text').val().length > 0",
+          "name": { ".validate": "newData.isString()" },
+          "text": { ".validate": "newData.isString()" },
+          "ts":   { ".validate": "newData.isNumber()" },
+          "$other": { ".validate": false }
+        }
+      }
+    },
+    "$other": { ".read": false, ".write": false }
+  }
+}
