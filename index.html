@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LAYARBOLA21 Saksikan pertandingan lengkap dari liga top dunia hingga aksi seru Timnas Indonesia U23 secara langsung dan tanpa buffering. Jadwal lengkap, kualitas HD, dan update skor terkini setiap hari.">
+    <meta name="author" content="Layarbola21">
+    <meta name="keywords" content="layarbola21, timnas u23, streaming timnas u23, live timnas u23, jadwal timnas u23, situs nonton bola indonesia, link situs nontonbola gratis, situs streaming bola liga1, situs nonton streaming primer league, live bola indonesia terbaru">
+    <title>LAYARBOLA21 || Tempat Streaming Live Bola Terbaik. Kualitas HD Tanpa Gangguan, Jadwal Lengkap Dan Sangat Mudah Untuk Di Akses</title>
+    <link rel="icon" type="image/png" href="https://layarbola21.org/iklan/lb21-favicon.png">
+
+    <!-- PERF: percepat koneksi ke origin pihak ketiga (handshake lebih awal) -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://layarbola21.org">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://v3.football.api-sports.io">
+    <link rel="dns-prefetch" href="https://st.chatango.com">
+    <link rel="dns-prefetch" href="https://s10.histats.com">
+    <link rel="dns-prefetch" href="https://static.cloudflareinsights.com">
+
+    <!-- PERF: Font Awesome dimuat non-render-blocking (tidak menahan render awal) -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .chatango-wrapper {
+        position: fixed;
+        bottom: 20px; /* Distance from the bottom */
+        right: 20px;  /* Distance from the right */
+        z-index: 9999; /* Ensures it stays on top of other content */
+    }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      
+      /* NEW: Enhanced Running Text Styles */
+      .running-text {
+        background: linear-gradient(90deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+        color: #fff;
+        padding: 12px 0;
+        margin: 15px 0;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .running-text::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #ff5722, #ffc107, #4caf50, #2196f3, #ff5722);
+        background-size: 200% 100%;
+        animation: shimmer 3s infinite linear;
+      }
+      
+      .running-text marquee {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: 0.5px;
+        padding: 5px 0;
+      }
+      
+      .running-text marquee span.highlight {
+        color: #ffc107;
+        font-weight: 800;
+        text-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+      }
+      
+      @keyframes shimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      
+      /* NEW: Vertical Banner Styles (PC only) */
+      .vertical-banner {
+        display: none;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 160px;
+        z-index: 999;
+        transition: all 0.3s ease;
+      }
+      
+      .vertical-banner.left {
+        left: 10px;
+      }
+      
+      .vertical-banner.right {
+        right: 10px;
+      }
+      
+      .vertical-banner img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+      }
+      
+      .vertical-banner img:hover {
+        transform: scale(1.05);
+      }
+      
+      /* NEW: Image Popup Styles */
+      .image-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.5s ease;
+      }
+      
+      .image-popup .popup-content {
+        background: transparent;
+        padding: 0;
+        max-width: 500px;
+        width: auto;
+        position: relative;
+        animation: slideUp 0.5s ease;
+        box-shadow: none;
+      }
+      
+      .image-popup .popup-close {
+        position: absolute;
+        top: -35px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        font-size: 28px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid white;
+        z-index: 10;
+      }
+      
+      .image-popup .popup-close:hover {
+        background: #ff5722;
+        transform: rotate(90deg);
+      }
+      
+      #popup-image {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        display: block;
+        transition: transform 0.3s ease;
+      }
+      
+      #popup-link {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+      
+      #popup-link:hover #popup-image {
+        transform: scale(1.02);
+      }
+      
+      .popup-actions {
+        margin-top: 20px;
+        text-align: center;
+      }
+      
+      .popup-button {
+        background: linear-gradient(to right, #ff5722, #ff9800);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+      }
+      
+      .popup-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4);
+        background: linear-gradient(to right, #ff9800, #ff5722);
+      }
+      
+      /* Animation for popup */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      @keyframes slideUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      
+      /* Optional: Pulse animation for popup */
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      
+      .image-popup .popup-content.pulse {
+        animation: pulse 2s infinite;
+      }
+      
+      /* Mobile adjustments for image popup */
+      @media (max-width: 768px) {
+        .image-popup .popup-content {
+          max-width: 90%;
+          padding: 0 15px;
+        }
+        
+        #popup-image {
+          max-width: 100%;
+        }
+        
+        .image-popup .popup-close {
+          top: -30px;
+          right: 15px;
+          width: 35px;
+          height: 35px;
+          font-size: 24px;
+        }
+        
+        .popup-button {
+          padding: 8px 16px;
+          font-size: 12px;
+        }
+      }
+      
+      /* Show vertical banners only on desktop */
+      @media (min-width: 1024px) {
+        .vertical-banner {
+          display: block;
+        }
+      }
+      
+      /* NEW: Improved Slider Styles */
+      .slider-container {
+        position: relative;
+        width: 100%;
+        margin: 20px auto;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+      
+      /* Ukuran untuk PC */
+      @media (min-width: 769px) {
+        .slider-container {
+          height: 320px;
+          max-width: 1000px;
+        }
+      }
+      
+      /* Ukuran untuk HP */
+      @media (max-width: 768px) {
+        .slider-container {
+          height: 200px;
+        }
+      }
+      
+      .slider-track {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+      }
+      
+      .slider-item {
+        min-width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      
+      .slider-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      
+      .slider-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .slider-overlay h3 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+        font-weight: 700;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+      }
+      
+      .slider-overlay p {
+        font-size: 1rem;
+        margin: 0;
+        opacity: 0.9;
+      }
+      
+      /* Ukuran teks untuk HP */
+      @media (max-width: 768px) {
+        .slider-overlay h3 {
+          font-size: 1.2rem;
+        }
+        
+        .slider-overlay p {
+          font-size: 0.9rem;
+        }
+      }
+      
+      .slider-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        padding: 12px 16px;
+        cursor: pointer;
+        font-size: 24px;
+        border-radius: 50%;
+        transition: background-color 0.3s;
+        z-index: 10;
+      }
+      
+      .slider-nav:hover {
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+      
+      .slider-nav.prev {
+        left: 15px;
+      }
+      
+      .slider-nav.next {
+        right: 15px;
+      }
+      
+      .slider-dots {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+      }
+      
+      .dot {
+        width: 12px;
+        height: 12px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+      
+      .dot.active {
+        background-color: #ff5722;
+        transform: scale(1.2);
+      }
+
+/* Stacked Banner Layout */
+.stacked-banners {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* lebih rapat */
+  margin: 12px auto;
+  padding: 0 10px;
+}
+
+/* MOBILE DEFAULT – FIXED */
+.banner-item {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+}
+
+
+/* IMAGE */
+.banner-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+
+/* OVERLAY */
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.15)
+  );
+}
+
+@media (max-width: 767px) {
+  .banner-item {
+    height: 47px;
+    overflow: hidden;
+  }
+
+  .banner-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain; /* ✅ tetap CONTAIN */
+    background: #000;     /* optional biar gak transparan */
+  }
+
+  /* 🔥 MATIKAN OVERLAY TOTAL DI MOBILE */
+  .banner-overlay {
+    display: none;
+  }
+}
+
+
+
+
+/* TITLE */
+.banner-overlay h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  color: #ffffff !important; /* ✅ PUTIH */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+}
+
+/* DESC */
+.banner-overlay p {
+  font-size: 0.75rem;
+  margin-top: 2px;
+  color: #ffffff !important; /* ✅ PUTIH */
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+/* ==================
+   TABLET
+   ================== */
+@media (min-width: 768px) {
+  .banner-overlay h3 {
+    font-size: 1.2rem;
+  }
+
+  .banner-overlay p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==================
+   DESKTOP
+   ================== */
+@media (min-width: 1024px) {
+  .banner-overlay {
+    justify-content: flex-end;
+    padding: 18px;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.75),
+      rgba(0,0,0,0.2)
+    );
+  }
+
+  .banner-overlay h3 {
+    font-size: 1.5rem;
+  }
+
+  .banner-overlay p {
+    font-size: 1rem;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <!-- NEW: Vertical Banners -->
+    <div class="vertical-banner left">
+        <a href="https://tinyurl.com/4rya88" target="_blank" rel="noopener" aria-label="Promo 10K Jadi 30K">
+            <img src="https://layarbola21.org/prediksi/banner.gif"
+                 alt="Promo 10K Jadi 30K - Dapatkan bonus eksklusif"
+                 loading="lazy" decoding="async" width="160" height="600"
+                 onerror="this.src='https://via.placeholder.com/160x600/1e3c72/ffffff?text=Promo+10K+Jadi+30K'">
+        </a>
+    </div>
+    
+    <div class="vertical-banner right">
+        <a href="https://tinyurl.com/4rya88" target="_blank" rel="noopener" aria-label="Affiliate Program">
+            <img src="https://layarbola21.org/prediksi/banner.gif"
+                 alt="Affiliate Program - Dapatkan komisi 30%"
+                 loading="lazy" decoding="async" width="160" height="600"
+                 onerror="this.src='https://via.placeholder.com/160x600/2a5298/ffffff?text=Affiliate+Program'">
+        </a>
+    </div>
+
+    <header>
+      <div class="header-content">
+        <div class="logo">
+          <img src="https://layarbola21.org/iklan/logo.png" alt="LiveScore Plus Logo" class="logo-img" decoding="async" fetchpriority="high">
+        </div>
+
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <ul>
+            <li>
+              <a href="/" class="active" id="home-link" aria-current="page">
+                <i class="fas fa-home"></i> Beranda
+              </a>
+            </li>
+            <li>
+              <a href="standings.html" id="standings-link">
+                <i class="fas fa-trophy"></i> Klasemen
+              </a>
+            </li>
+            <li>
+              <a href="https://layarbola21.org/news-football/" id="news-link">
+                <i class="fas fa-newspaper"></i> Berita
+              </a>
+            </li>
+            <li>
+              <a href="player.html" id="player-link">
+                <i class="fas fa-user-alt"></i> Player
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="desktop-search-container" id="desktop-search-container">
+          <label for="desktop-search-input" class="sr-only">Cari</label>
+          <input type="text" id="desktop-search-input" placeholder="Cari liga, tim, pertandingan...">
+          <button id="desktop-search-icon" aria-label="Mulai Pencarian"><i class="fas fa-search"></i></button>
+        </div>
+
+        <div class="mobile-only">
+          <button id="search-toggle" aria-label="Buka Pencarian Mobile"><i class="fas fa-search"></i></button>
+          <button id="mobile-menu-toggle" aria-label="Buka Menu Mobile"><i class="fas fa-bars"></i></button>
+        </div>
+      </div>
+    </header>
+    
+    <div class="container">
+      <main class="main-content">
+        <!-- NEW: Improved Slider with 3 banners -->
+        <!-- NEW: Stacked Banner Section -->
+<section class="stacked-banners" aria-label="Promotional Banners">
+
+  <a href="https://arya88zeus.xyz/registration?refC=SCP65348" class="banner-item" rel="noopener">
+    <img src="https://layarbola21.org/iklan/arya.gif" alt="Arya88" loading="lazy" decoding="async">
+    <div class="banner-overlay">
+      <h3>ARYA88</h3>
+      <p>Pasaran & hasil real-time</p>
+    </div>
+  </a>
+
+  <a href="https://anakslot5.xyz/registration?refC=SCP47468" class="banner-item" rel="noopener">
+    <img src="https://layarbola21.org/iklan/anakslot.gif" alt="Anakslot" loading="lazy" decoding="async">
+    <div class="banner-overlay">
+      <h3>ANAKSLOT</h3>
+      <p>Pasaran lengkap untuk kebutuhan betting judi bola anda</p>
+    </div>
+  </a>
+
+  <a href="https://bosjudi888.live/registration?refC=SCP46112" class="banner-item" rel="noopener">
+    <img src="https://layarbola21.org/iklan/bosjudi.gif" alt="Bosjudi" loading="lazy" decoding="async">
+    <div class="banner-overlay">
+      <h3>BOSJUDI</h3>
+      <p>Transfer, analisis & update harian sportsbook</p>
+    </div>
+  </a>
+
+  <a href="https://supervegas01.online/registration?refC=ASD45678" class="banner-item" rel="noopener">
+    <img src="https://layarbola21.org/iklan/ab.gif" alt="Supervegas88" loading="lazy" decoding="async">
+    <div class="banner-overlay">
+      <h3>SUPERVEGAS88</h3>
+      <p>Agen Judi Bola Terpercaya dengan beragam bonus menarik</p>
+    </div>
+  </a>
+
+</section>
+
+        
+        <!-- ENHANCED: Running Text / Tulisan Bergerak -->
+        <div class="running-text">
+           <marquee behavior="scroll" direction="left" scrollamount="6">
+             🔥 <span class="highlight">Breaking News Hari Ini</span>: Update skor terbaru •
+             <span class="highlight">Promo event tebak skor berhadiah</span> •
+             Jadwal bola lengkap tersedia •
+             <span class="highlight">Cek berita terbaru</span> hanya di LAYARBOLA21 🔥
+           </marquee>
+        </div>
+        
+        <section class="card" id="match-schedule-card" aria-labelledby="livescore-title">
+          <div class="section-title">
+            <span id="livescore-title">
+              <i class="fas fa-futbol"></i> LIVESCORE FOOTBALL
+            </span>
+            <div class="date-navigation-wrapper">
+              <div class="date-navigation" role="group" aria-label="Date Navigation">
+                <button class="date-nav-btn" id="prev-date" aria-label="Previous Day">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <span class="current-date" id="current-date">29-08-2025</span>
+                <button class="date-nav-btn" id="next-date" aria-label="Next Day">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="tab-container" role="tablist">
+            <div class="tab active" data-tab="all" role="tab" aria-selected="true" id="tab-all">
+              <i class="fas fa-list"></i> Semua
+            </div>
+            <div class="tab" data-tab="live" role="tab" aria-selected="false" id="tab-live">
+              <i class="fas fa-play-circle"></i> Live
+            </div>
+            <div class="tab" data-tab="finished" role="tab" aria-selected="false" id="tab-finished">
+              <i class="fas fa-whistle"></i> Finished
+            </div>
+            <div class="tab" data-tab="scheduled" role="tab" aria-selected="false" id="tab-scheduled">
+              <i class="fas fa-clock"></i> Scheduled
+            </div>
+            <div class="tab" data-tab="favorites" role="tab" aria-selected="false" id="tab-favorites">
+              <i class="fas fa-star"></i> Favorit <span class="favorite-count">0</span>
+            </div>
+          </div>
+          <div class="tab-content active" id="all" role="tabpanel" aria-labelledby="tab-all"></div>
+          <div class="tab-content" id="live" role="tabpanel" aria-labelledby="tab-live"></div>
+          <div class="tab-content" id="finished" role="tabpanel" aria-labelledby="tab-finished"></div>
+          <div class="tab-content" id="scheduled" role="tabpanel" aria-labelledby="tab-scheduled"></div>
+          <div class="tab-content" id="favorites" role="tabpanel" aria-labelledby="tab-favorites">
+            <div class="no-matches">
+              <i class="far fa-star" style="font-size: 48px; margin-bottom: 15px;"></i>
+              <h3>Belum ada pertandingan favorit</h3>
+              <p>Klik ikon bintang pada pertandingan untuk menambahkannya ke favorit</p>
+            </div>
+          </div>
+        </section>
+
+        <div id="home-content-container">
+          <section class="news-container" aria-labelledby="latest-news-title">
+            <div class="card">
+              <div class="section-title">
+                <span id="latest-news-title">
+                  <i class="fas fa-newspaper"></i> Berita Terkini
+                </span>
+              </div>
+              <div class="news-grid" id="home-news-grid"></div>
+              <div class="more-news-container">
+                <button class="more-news-btn">Berita Lainnya &gt;</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="match-detail" id="match-detail-page" aria-label="Match Details"></section>
+
+        <section id="team-detail-page" class="standings-page" aria-label="Team Details"></section>
+
+        <section id="standings-all-page" class="standings-page" aria-label="All League Standings"></section>
+        <section id="news-page" class="standings-page" aria-labelledby="all-news-title">
+          <div class="card">
+            <div class="section-title">
+              <span id="all-news-title">
+                <i class="fas fa-newspaper"></i> Semua Berita
+              </span>
+            </div>
+            <div class="news-grid" id="all-news-grid"></div>
+          </div>
+        </section>
+        
+        <!-- NEW: News Detail Page -->
+        <section id="news-detail-page" class="standings-page" aria-label="News Detail">
+          <div class="news-detail-content-wrapper">
+            <div class="news-detail-main">
+              <div class="card">
+                <div class="news-detail-header">
+                  <button class="back-button" id="back-to-news-list"><i class="fas fa-arrow-left"></i> Kembali ke Berita</button>
+                  <h2 id="news-detail-title"></h2>
+                  <p class="news-detail-meta">Oleh <span id="news-detail-author"></span> pada <span id="news-detail-date"></span></p>
+                </div>
+                <img src="" alt="" id="news-detail-img" class="news-detail-img">
+                <div class="news-detail-body" id="news-detail-body"></div>
+                <div class="news-detail-tags" id="news-detail-tags"></div>
+              </div>
+              <!-- Comments Section -->
+              <div class="card comments-section">
+                <div class="section-title">
+                  <span><i class="fas fa-comments"></i> Komentar</span>
+                </div>
+                <div class="comments-list" id="comments-list">
+                  <!-- Comments will be loaded here -->
+                </div>
+                <div class="comment-form">
+                  <h3>Tinggalkan Komentar</h3>
+                  <input type="text" id="comment-name" placeholder="Nama Anda" required>
+                  <textarea id="comment-text" placeholder="Tulis komentar Anda..." required></textarea>
+                  <button id="submit-comment">Kirim Komentar</button>
+                </div>
+              </div>
+            </div>
+            <aside class="news-detail-sidebar">
+              <div class="sidebar-card">
+                <div class="sidebar-title">
+                  <i class="fas fa-newspaper"></i> Berita Lainnya
+                </div>
+                <div class="news-list" id="related-news-list">
+                  <!-- Related news will be loaded here -->
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- NEW: Player Page -->
+        <section id="player-page" class="standings-page" aria-labelledby="player-title">
+          <div class="card">
+            <div class="section-title">
+              <span id="player-title">
+                <i class="fas fa-user-alt"></i> Informasi Pemain
+              </span>
+            </div>
+            <div id="player-content" style="padding: 15px;">
+              <div class="player-controls">
+                <select id="player-season-select" aria-label="Pilih Musim"></select>
+                <select id="player-league-select" aria-label="Pilih Liga"></select>
+                <input type="text" id="player-search-input" placeholder="Cari pemain..." aria-label="Cari Pemain">
+                <button id="player-search-button" aria-label="Cari"><i class="fas fa-search"></i></button>
+              </div>
+              <div id="player-list-container" class="player-grid">
+                <!-- Daftar pemain akan dimuat di sini -->
+              </div>
+              <div id="player-detail-container" style="display: none;">
+                <button class="back-button" id="back-to-player-list"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Pemain</button>
+                <div class="player-profile-card card">
+                  <div class="player-profile-header">
+                    <img src="https://placehold.co/100x100/cccccc/969696?text=P" alt="Player Photo" id="player-profile-photo">
+                    <h2 id="player-profile-name"></h2>
+                    <p id="player-profile-team"></p>
+                    <p id="player-profile-nationality"></p>
+                  </div>
+                  <div class="player-profile-info">
+                    <h4>Informasi Pribadi</h4>
+                    <ul>
+                      <li><span>Usia:</span> <strong id="player-profile-age"></strong></li>
+                      <li><span>Tinggi:</span> <strong id="player-profile-height"></strong></li>
+                      <li><span>Berat:</span> <strong id="player-profile-weight"></strong></li>
+                      <li><span>Posisi:</span> <strong id="player-profile-position"></strong></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="player-stats-card card">
+                  <div class="section-title">
+                    <span><i class="fas fa-chart-bar"></i> Statistik Musim Ini</span>
+                  </div>
+                  <div id="player-stats-content">
+                    <!-- Statistik pemain akan dimuat di sini -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title">
+              <span><i class="fas fa-futbol"></i> Top Skor</span>
+            </div>
+            <div id="top-scorers-list" class="ranking-list">
+              <!-- Top Skor akan dimuat di sini -->
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title">
+              <span><i class="fas fa-handshake"></i> Top Assist</span>
+            </div>
+            <div id="top-assists-list" class="ranking-list">
+              <!-- Top Assist akan dimuat di sini -->
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title">
+              <span><i class="fas fa-square"></i> Top Kartu Kuning</span>
+            </div>
+            <div id="top-yellow-cards-list" class="ranking-list">
+              <!-- Top Kartu Kuning akan dimuat di sini -->
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="section-title">
+              <span><i class="fas fa-square"></i> Top Kartu Merah</span>
+            </div>
+            <div id="top-red-cards-list" class="ranking-list">
+              <!-- Top Kartu Merah akan dimuat di sini -->
+            </div>
+          </div>
+        </section>
+        <!-- END NEW: Player Page -->
+
+        <section id="league-schedule-page" class="standings-page" aria-label="League Schedule"></section>
+        <section id="country-leagues-page" class="standings-page" aria-label="Leagues by Country"></section>
+
+      </main>
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-title">
+            <i class="fas fa-trophy"></i> TOP LEAGUE
+          </div>
+          <div class="league-list" id="sidebar-league-list">
+            <!-- Konten akan diisi oleh JavaScript -->
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-title">
+            <i class="fas fa-globe"></i> NEGARA
+          </div>
+          <div class="country-list" id="sidebar-country-list">
+            <!-- Konten akan diisi oleh JavaScript -->
+          </div>
+        </div>
+      </aside>
+    </div>
+    
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Deskripsi</h3>
+          <p>LAYARBOLA21 Mulai dari Liga</p>
+          <p>Mulai dari Liga Champions</p>
+          <p>hingga liga lokal</p>
+          <p>ikuti skor sepak bola</p>
+          <p>terkini secara live.</p>
+          <p>Update cepat, data lengkap</p>
+          <p>tanpa gangguan.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Media Sosial</h3>
+          <ul>
+            <li>
+              <a href="/">Facebook</a>
+            </li>
+             <li>
+              <a href="/">Instagram</a>
+            </li>
+            <li>
+              <a href="/">YouTube</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Bantuan</h3>
+          <ul>
+            <li>
+              <a href="/faq.html">FAQ</a>
+            </li>
+            <li>
+              <a href="/kebijakan-privasi.html">Kebijakan Privasi</a>
+            </li>
+            <li>
+              <a href="/syarat-dan-ketentuan.html">Syarat dan Ketentuan</a>
+            </li>
+            <li>
+              <a href="/panduan-penggunaan.html">Panduan Penggunaan</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Kontak Kami</h3>
+          <ul>
+            <li>
+              <a href="/cdn-cgi/l/email-protection#462a273f2734352d293406212b272f2a6825292b" aria-label="Email kami"><i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="9bf7fae2fae9e8f0f4e9dbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a>
+            </li>
+            <li>
+              <a href="https://t.me/layarbola21" target="_blank" aria-label="channel Telegram Resmi"><i class="fab fa-telegram-plane"></i> LAYARBOLA21 Official</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright"> &copy; 2025 LAYARBOLA21. All rights reserved. </div>
+      <!-- Histats.com  (div with counter) --><center><div id="histats_counter"></div>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5007207,4,219,112,50,00011111']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5007207&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  --></center>
+    </footer>
+    
+    <div id="standings-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-league-title">
+      <div class="modal-content">
+        <span class="close-modal" aria-label="Close standings modal">&times;</span>
+        <div id="modal-league-content"></div>
+      </div>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Mobile Navigation">
+      <a href="/" id="home-bottom" class="active" aria-current="page"><i class="fas fa-home"></i><span>Beranda</span></a>
+      <a href="#" id="standings-bottom"><i class="fas fa-trophy"></i><span>Klasemen</span></a>
+      <a href="#" id="news-bottom"><i class="fas fa-newspaper"></i><span>Berita</span></a>
+      <a href="#" id="player-bottom"><i class="fas fa-user-alt"></i><span>Player</span></a>
+    </nav>
+
+    <div id="league-sidebar" class="league-sidebar" role="navigation" aria-label="Mobile League Sidebar">
+      <div class="league-sidebar-header">
+        <h3><i class="fas fa-trophy"></i> Top League & Region</h3>
+        <span id="close-league-sidebar" aria-label="Close sidebar">&times;</span>
+      </div>
+      <div class="league-sidebar-content">
+        <div class="sidebar-card">
+          <div class="sidebar-title"><i class="fas fa-trophy"></i> TOP LEAGUE</div>
+          <div class="league-list" id="mobile-sidebar-league-list">
+            <!-- Konten akan diisi oleh JavaScript -->
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-title"><i class="fas fa-globe"></i> REGION</div>
+          <div class="country-list" id="mobile-sidebar-country-list">
+            <!-- Konten akan diisi oleh JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
+      <div class="search-overlay-content">
+        <h2 id="search-modal-title" class="sr-only">Pencarian</h2>
+        <span class="close-search" id="close-search" aria-label="Tutup Pencarian">&times;</span>
+        <label for="search-input" class="sr-only">Cari liga, tim, pertandingan, berita...</label>
+        <input type="text" id="search-input" placeholder="Cari liga, tim, pertandingan, berita...">
+        <div id="search-results" class="search-results" aria-live="polite">
+          <!-- Hasil pencarian akan dimuat di sini -->
+        </div>
+      </div>
+    </div>
+
+    <!-- PERF: widget Chatango dimuat saat idle / interaksi pertama, bukan saat load awal -->
+    <div class="chatango-wrapper" id="chatango-wrapper"></div>
+    <script>
+      (function () {
+        var loaded = false;
+        function loadChatango() {
+          if (loaded) return; loaded = true;
+          var s = document.createElement('script');
+          s.id = 'cid0020000440945293815';
+          s.async = true;
+          s.src = '//st.chatango.com/js/gz/emb.js';
+          s.setAttribute('data-cfasync', 'false');
+          s.style.cssText = 'width:250px;height:350px;';
+          s.setAttribute('data-config', '{"handle":"nobarlayarbola21","arch":"js","styles":{"a":"000066","b":100,"c":"FFFFFF","d":"FFFFFF","k":"000066","l":"000066","m":"000066","n":"FFFFFF","p":"9.27","q":"000066","r":100,"cnrs":"0.35","fwtickm":1}}');
+          document.getElementById('chatango-wrapper').appendChild(s);
+        }
+        ['scroll', 'pointerdown', 'keydown', 'touchstart'].forEach(function (ev) {
+          window.addEventListener(ev, loadChatango, { once: true, passive: true });
+        });
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadChatango, { timeout: 7000 });
+        } else {
+          setTimeout(loadChatango, 5000);
+        }
+      })();
+    </script>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"fbacaffaa4f6410889fcb4aae7d3e56f","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
